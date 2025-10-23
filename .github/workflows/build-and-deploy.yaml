@@ -1,0 +1,24 @@
+name: deploy website on namecheap
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+jobs: 
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Upload files to FTP server
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+            server: ${{ secrets.FTP_HOST }}
+            username: ${{ secrets.FTP_USERNAME }}
+            password: ${{ secrets.FTP_PASSWORD }}
+            server-dir: ${{ secrets.FTP_PATH }}
+            local-dir: ./   # if your build output is in /dist or /build, set that instead
