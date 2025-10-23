@@ -20,7 +20,7 @@ jobs:
             server: ${{ secrets.FTP_HOST }}
             username: ${{ secrets.FTP_USERNAME }}
             password: ${{ secrets.FTP_PASSWORD }}
-            server-dir: ${{ secrets.FTP_PATH }}
+            server-dir: /
             local-dir: ./   # if your build output is in /dist or /build, set that instead
             protocol: ftps
             port: 21
