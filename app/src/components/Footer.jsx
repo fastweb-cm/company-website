@@ -2,7 +2,7 @@ import React from 'react'
 import { navLinks, socialLinks, contactInfo } from '../utils/data'
 import Button from './Button';
 import { ArrowRight } from 'lucide-react';
-
+import { NavLink } from 'react-router-dom';
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
@@ -15,7 +15,7 @@ const Footer = () => {
             We provide cutting-edge IT solutions, web & mobile applications,
             networking, and IT consulting services.
           </p>
-          <Button  icon={ArrowRight} iconPosition='right' className='rounded-md py-4 my-6' >Discover More</Button>
+          <Button  icon={ArrowRight} iconPosition='right' className='rounded-md py-4 my-6 hover:text-text' >Discover More</Button>
         </div>
 
         {/* Quick Links */}
@@ -24,16 +24,16 @@ const Footer = () => {
           <ul className="space-y-2">
             {navLinks.map((link) => (
               <li key={link.name} >
-                <a
-                  href={link.href}
+                <NavLink
+                  to={link.href}
                   className="relative
                 text-footer-text
                   transition-colors duration-300 ease-in-out
-                  after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 after:ease-in-out
+                  after:content-[''] after:absolute after:left-0 after:-bottom-1.5 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 after:ease-in-out
                 hover:text-secondary hover:after:w-full"
                 >
                   {link.name}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>

@@ -7,6 +7,7 @@
   --color-muted: rgb(128, 130, 135); /* Muted / subtle text */
   --color-background: rgb(255, 255, 255); /* Page base background */
   --color-text: rgb(0, 0, 0); /* Default text color */
+  --color-header-text: rgb(113,112,112);
   --color-footer-text: rgb(140, 143, 148);
 
   --color-success: #22c55e;
@@ -84,3 +85,15 @@
     color: var(--color-secondary);
   }
 }
+
+/* Hide scrollbar for Chrome, Safari and Edge */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+

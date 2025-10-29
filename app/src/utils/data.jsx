@@ -1,10 +1,10 @@
 import { Facebook, Twitter, Linkedin, Github, Mail, Phone } from "lucide-react";
 export const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Services", href: "#services" },
-    { name: "Projects", href: "#projects" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Projects", href: "/projects" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
 ]
 
 export const socialLinks = [

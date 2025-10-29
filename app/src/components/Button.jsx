@@ -9,19 +9,26 @@ export default function Button({
   icon: Icon,
   iconPosition = "left",
   hoverAnimation = "slide", // slide | fill | pop
+  hoverBg = "secondary", // black | primary | secondary | white etc
   disabled = false,
   className = "",
 }) {
   const baseStyles =
-    "relative inline-flex items-center justify-center font-medium cursor-pointer overflow-hidden transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2";
+    "relative inline-flex items-center justify-center cursor-pointer overflow-hidden transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2";
+
+  // Static mapping for Tailwind to recognize all potential bg colors
+  const hoverBgColors = {
+    black: "before:bg-black",
+    white: "before:bg-white",
+    primary: "before:bg-primary",
+    secondary: "before:bg-secondary",
+    muted: "before:bg-muted",
+  };
 
   const variants = {
-    primary:
-      "bg-primary text-white hover:bg-primary hover:text-text focus:ring-primary before:absolute before:inset-0 before:bg-secondary before:translate-x-[-100%] before:transition-transform before:duration-300",
-    secondary:
-      "bg-secondary text-white focus:ring-secondary before:absolute before:inset-0 before:bg-primary before:translate-x-[-100%] before:transition-transform before:duration-300",
-    outline:
-      "border border-primary text-primary relative overflow-hidden focus:ring-primary before:absolute before:inset-0 before:bg-primary before:translate-x-[-100%] before:transition-transform before:duration-300",
+    primary: `bg-primary text-white focus:ring-primary before:absolute before:inset-0 ${hoverBgColors[hoverBg]} before:translate-x-[-100%] before:transition-transform before:duration-300`,
+    secondary: `bg-secondary text-white focus:ring-secondary before:absolute before:inset-0 ${hoverBgColors[hoverBg]} before:translate-x-[-100%] before:transition-transform before:duration-300`,
+    outline: `border border-primary text-primary focus:ring-primary before:absolute before:inset-0 ${hoverBgColors[hoverBg]} before:translate-x-[-100%] before:transition-transform before:duration-300`,
   };
 
   const sizes = {
