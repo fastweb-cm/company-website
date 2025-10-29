@@ -1,26 +1,52 @@
-name: deploy website on namecheap
+name: Deploy Vite React Website on Namecheap
 
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        branches:
-            - main
-jobs: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      # Step 1: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Upload files to FTP server
+      # Step 2: Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        working-directory: ./app
+        run: npm install
+
+      # Step 4: Build Vite app
+      - name: Build Vite App
+        working-directory: ./app
+        run: npm run build
+
+      # Step 5: Verify build output
+      - name: Check dist directory
+        run: |
+          echo "Listing ./app/dist contents..."
+          ls -la ./app/dist
+
+      # Step 6: Deploy to Namecheap via FTP
+      - name: Deploy to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-            server: ${{ secrets.FTP_HOST }}
-            username: ${{ secrets.FTP_USERNAME }}
-            password: ${{ secrets.FTP_PASSWORD }}
-            server-dir: /
-            local-dir: ./   # if your build output is in /dist or /build, set that instead
-            protocol: ftps
-            port: 21
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /
+          local-dir: ./app/dist/
+          protocol: ftps
+          port: 21
