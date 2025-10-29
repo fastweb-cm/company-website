@@ -1,4 +1,4 @@
-name: Deploy React Website on Namecheap
+name: Deploy Vite React Website on Namecheap
 
 on:
   push:
@@ -21,26 +21,32 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # or your preferred version
+          node-version: '20'
 
       # Step 3: Install dependencies
       - name: Install dependencies
         working-directory: ./app
-        run: npm ci
+        run: npm install
 
-      # Step 4: Build React app
-      - name: Build React App
+      # Step 4: Build Vite app
+      - name: Build Vite App
         working-directory: ./app
         run: npm run build
 
-      # Step 5: Deploy to Namecheap via FTP
+      # Step 5: Verify build output
+      - name: Check dist directory
+        run: |
+          echo "Listing ./app/dist contents..."
+          ls -la ./app/dist
+
+      # Step 6: Deploy to Namecheap via FTP
       - name: Deploy to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /         # root directory of your hosting
-          local-dir: ./app/build/ # build folder of React
+          server-dir: /
+          local-dir: ./app/dist
           protocol: ftps
           port: 21
