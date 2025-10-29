@@ -76,7 +76,7 @@ const Navbar = () => {
           </div>
 
           {/* Main Navigation */}
-          <ul className="flex flex-col mt-6 space-y-3 px-6 flex-grow">
+          <ul className="flex flex-col mt-6 space-y-3 px-6 grow">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <NavLink
