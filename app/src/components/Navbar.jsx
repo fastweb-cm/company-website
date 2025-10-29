@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="w-full bg-primary text-white shadow-md fixed top-0 left-0 z-50">
+    <nav className="w-full bg-secondary text-white shadow-md fixed top-0 left-0 z-50">
       <div className="flex items-center justify-between px-6 py-4">
         {/* logo */}
         <h1 className="text-2xl font-bold tracking-wide">
@@ -15,7 +15,7 @@ const Navbar = () => {
         <ul className="hidden md:flex gap-8">
           {navLinks.map((link) => (
             <li key={link.name}>
-              <a href={link.name} className='hover:text-secondary transition-colors duration-300'>{link.name}</a>
+              <a href={link.name} className='hover:text-secondary text-white transition-colors duration-300'>{link.name}</a>
             </li>
           ))}
         </ul>
