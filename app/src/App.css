@@ -4,7 +4,7 @@
   --color-primary: rgb(223, 35, 19); /* Dominant brand color (red tone) */
   --color-secondary: rgb(255, 255, 255); /* Secondary / navbar background */
   --color-accent: rgb(34, 36, 41); /* Deep background sections */
-  --color-muted: rgb(128, 130, 135); /* Muted / subtle text */
+  --color-muted: #d1d5dc; /* Muted / subtle text */
   --color-background: rgb(255, 255, 255); /* Page base background */
   --color-text: rgb(0, 0, 0); /* Default text color */
   --color-header-text: rgb(113,112,112);

@@ -8,8 +8,8 @@ const MainLayout = () => {
       {/* Header */}
       <Navbar />
 
-      {/* Page Content */}
-      <main className="flex-1 px-4 md:px-8 py-8 my-10">
+      {/* Page Content px-4 md:px-8 */}
+      <main className="flex-1 py-8 my-10">
         <Outlet /> {/* This is where Home (and other pages) will render */}
       </main>
 
