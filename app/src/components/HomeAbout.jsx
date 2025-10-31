@@ -6,7 +6,7 @@ import {motion as Motion} from "framer-motion"
 export default function HomeAbout() {
   return (
     <section className="relative py-10 bg-background overflow-hidden">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* ===== IMAGE SIDE ===== */}
         <div className="relative w-full h-full">
           {/* Polygon background under the image */}
@@ -22,14 +22,14 @@ export default function HomeAbout() {
           </div>
 
           {/* Top-right: Projects count */}
-        <div className="absolute top-6 right-6 flex flex-col items-center">
+        <div className="absolute top-0 lg:top-6 right-6 flex flex-col items-center">
             <div className="flex items-center gap-4 ml-14">
                 <Briefcase className="text-primary w-6 h-6" />
                 <h3 className="leading-none">120+</h3>
             </div>
 
             {/* Rotated label */}
-            <p className="mt-3 text-sm text-primary uppercase origin-top-right rotate-270">Projects Done</p>
+            <p className="text-sm text-primary uppercase origin-top-right rotate-270">Projects Done</p>
         </div>
 
 
@@ -65,7 +65,7 @@ export default function HomeAbout() {
           </p>
 
           <div className="flex items-center gap-6 group">
-            <div className="flex items-center justify-center h-[100px] w-[100px] rounded-full bg-muted/30 group-hover:bg-primary transition-all duration-500 ease-in-out transform group-hover:rotate-180 group-hover:-scale-100">
+            <div className="flex shrink-0 items-center justify-center h-[100px] w-[100px] rounded-full bg-muted/30 group-hover:bg-primary transition-all duration-500 ease-in-out transform group-hover:rotate-180 group-hover:-scale-100">
                 <Rocket size={60} className="text-primary group-hover:text-white transition-colos duration-500"/>
             </div>
             <div className="flex flex-col gap-4">
@@ -74,7 +74,7 @@ export default function HomeAbout() {
             </div>
           </div>
           <div className="flex items-center gap-6 group">
-            <div className="flex items-center justify-center h-[100px] w-[100px] rounded-full bg-muted/30 group-hover:bg-primary transition-all duration-500 ease-in-out transform group-hover:rotate-360 group-hover:-scale-100">
+            <div className="flex shrink-0 items-center justify-center h-[100px] w-[100px] rounded-full bg-muted/30 group-hover:bg-primary transition-all duration-500 ease-in-out transform group-hover:rotate-360 group-hover:-scale-100">
                 <Globe size={60} className="text-primary group-hover:text-white transition-colos duration-500"/>
             </div>
             <div className="flex flex-col gap-4">
@@ -88,7 +88,7 @@ export default function HomeAbout() {
             that is both reliable and forward-thinking. At our core, we believe that
             innovation and collaboration lead to lasting digital success.
           </p>
-          <Button hoverBg="primary" variant="muted" className="rounded-none w-1/2 uppercase py-3 px-10 font-extrabold hover:text-secondary">
+          <Button hoverBg="primary" variant="muted" className="rounded-none md:w-1/2 uppercase py-3 px-10 font-extrabold hover:text-secondary">
             discover more
           </Button>
         </div>
