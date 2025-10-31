@@ -1,5 +1,9 @@
 import { Facebook, Twitter, Linkedin, Github, Mail, Phone,GlobeLock,
-    Code2,Smartphone, Server,Cpu } from "lucide-react";
+    Code2,Smartphone, Server,Cpu,Code, Cloud, ShoppingBag  } from "lucide-react";
+import project1 from "../assets/backgrounds/project1.jpg";
+import project2 from "../assets/backgrounds/project2.jpg";
+import project3 from "../assets/backgrounds/project3.jpg";
+
 export const navLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
@@ -48,6 +52,41 @@ export const services = [
     icon: Cpu,
     title: "IT Consulting",
     subtitle: "Providing expert guidance to optimize your technology and digital operations.",
+  },
+];
+
+export const projects = [
+  {
+    title: "FinSync – Financial Analytics Dashboard",
+    category: "Web Application",
+    description:
+      "A real-time analytics dashboard for finance companies to visualize transactions, revenue streams, and client activities using React, Node.js, and MongoDB.",
+    icon: Code,
+    image: project1, // placeholder path
+  },
+  {
+    title: "QuickCart – E-commerce Platform",
+    category: "E-commerce",
+    description:
+      "An all-in-one shopping solution with secure payments, advanced search filters, and real-time delivery tracking powered by Next.js and Stripe.",
+    icon: ShoppingBag,
+    image: project2,
+  },
+  {
+    title: "NovaBank Mobile",
+    category: "Mobile App",
+    description:
+      "A cross-platform mobile banking app offering seamless transfers, biometric login, and instant loan services built with React Native and Firebase.",
+    icon: Smartphone,
+    image: project3,
+  },
+  {
+    title: "CloudNet Suite",
+    category: "Cloud Infrastructure",
+    description:
+      "A cloud-based system for deploying and monitoring enterprise workloads with auto-scaling and container orchestration using AWS and Kubernetes.",
+    icon: Cloud,
+    image: project1,
   },
 ];
 
