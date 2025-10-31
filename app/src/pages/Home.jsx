@@ -1,6 +1,7 @@
 import HeroSection from "../components/HeroSection";
 import HomeAbout from "../components/HomeAbout";
 import HomeHeroCard from "../components/HomeHeroCard";
+import HomeServices from "../components/HomeServices";
 import { services } from "../utils/data";
 
 const Home = () => {
@@ -8,7 +9,7 @@ const Home = () => {
     <div>
       <HeroSection />
 
-      {/* Services Section */}
+      {/* top Services Section */}
       <section className="px-4 md:px-8 my-10 md:-mt-10">
         <div className="flex flex-wrap justify-center gap-6 mx-auto">
           {services.map((service, index) => (
@@ -25,9 +26,15 @@ const Home = () => {
       </section>
 
       {/* about section */}
-      <div className="px-4 md:px-8">
+      <section className="px-4 md:px-8">
         <HomeAbout />
-      </div>
+      </section>
+
+      {/* services */}
+      <section className="my-10">
+        <HomeServices />
+      </section>
+
     </div>
   );
 };

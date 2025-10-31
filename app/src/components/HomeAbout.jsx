@@ -3,6 +3,7 @@ import { Briefcase, Rocket, Globe } from "lucide-react";
 import Drpeter from "../assets/images/Drpeter.png"
 import Button from "./Button";
 import {motion as Motion} from "framer-motion"
+import SectionHeaderText from "./SectionHeaderText";
 export default function HomeAbout() {
   return (
     <section className="relative py-10 bg-background overflow-hidden">
@@ -51,10 +52,7 @@ export default function HomeAbout() {
 
         {/* ===== TEXT SIDE ===== */}
         <div className="flex flex-col gap-5">
-        <h4 className="text-primary inline-block relative">
-            About Our Company
-            <span className="absolute top-1/2 my-1 ml-3 w-10 h-0.5 bg-primary transform -translate-y-1/2"></span>
-        </h4>
+        <SectionHeaderText title="ABOUT OUR COMPANY" />
 
           <h1 className="font-extrabold text-4xl">Empowering Digital Growth Worldwide</h1>
           <p className="text-gray-700 leading-relaxed">
