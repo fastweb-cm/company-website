@@ -1,4 +1,5 @@
 import HeroSection from "../components/HeroSection";
+import HomeAbout from "../components/HomeAbout";
 import HomeHeroCard from "../components/HomeHeroCard";
 import { services } from "../utils/data";
 
@@ -22,6 +23,11 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      {/* about section */}
+      <div className="px-4 md:px-8">
+        <HomeAbout />
+      </div>
     </div>
   );
 };

@@ -27,6 +27,7 @@ export default function Button({
 
   const variants = {
     black: `bg-black text-white focus:ring-0 before:absolute before:inset-0 ${hoverBgColors[hoverBg]} before:translate-x-[-100%] before:transition-transform before:duration-300`,
+    muted: `bg-muted/30 text-primary focus:ring-0 before:absolute before:inset-0 ${hoverBgColors[hoverBg]} before:translate-x-[-100%] before:transition-transform before:duration-300`,
     primary: `bg-primary text-white focus:ring-primary before:absolute before:inset-0 ${hoverBgColors[hoverBg]} before:translate-x-[-100%] before:transition-transform before:duration-300`,
     secondary: `bg-secondary text-white focus:ring-secondary before:absolute before:inset-0 ${hoverBgColors[hoverBg]} before:translate-x-[-100%] before:transition-transform before:duration-300`,
     outline: `border border-primary text-primary hover:border-transparent before:absolute before:inset-0 ${hoverBgColors[hoverBg]} before:translate-x-[-100%] before:transition-transform before:duration-300`,
