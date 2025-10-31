@@ -1,6 +1,7 @@
 import HeroSection from "../components/HeroSection";
 import HomeAbout from "../components/HomeAbout";
 import HomeHeroCard from "../components/HomeHeroCard";
+import HomeProjects from "../components/HomeProjects";
 import HomeServices from "../components/HomeServices";
 import { services } from "../utils/data";
 
@@ -33,6 +34,11 @@ const Home = () => {
       {/* services */}
       <section className="my-10">
         <HomeServices />
+      </section>
+
+      {/* projects */}
+      <section className="my-10">
+        <HomeProjects />
       </section>
 
     </div>
