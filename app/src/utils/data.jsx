@@ -1,5 +1,5 @@
 import { Facebook, Twitter, Linkedin, Github, Mail, Phone,GlobeLock,
-    Code2,Smartphone, Server,Cpu,Code, Cloud, ShoppingBag  } from "lucide-react";
+    Code2,Smartphone, Server,Cpu,Code, Cloud, ShoppingBag,Smile,Briefcase,Clock,ThumbsUp  } from "lucide-react";
 import project1 from "../assets/backgrounds/project1.jpg";
 import project2 from "../assets/backgrounds/project2.jpg";
 import project3 from "../assets/backgrounds/project3.jpg";
@@ -89,5 +89,32 @@ export const projects = [
     image: project1,
   },
 ];
+
+export const countdownData = [
+  {
+    label: "Satisfied Clients",
+    value: 150,
+    icon: Smile,
+    suffix: "+"
+  },
+  {
+    label: "Projects Completed",
+    value: 320,
+    icon: Briefcase,
+    suffix: "+"
+  },
+  {    
+    label: "Years of Experience",
+    value: 25,
+    icon: Clock,
+    suffix: "+"
+  },
+  {
+    label: "Satisfaction Rate",
+    value: 99,
+    icon: ThumbsUp,
+    suffix: "%"
+  }
+]
 
   
