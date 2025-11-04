@@ -7,7 +7,7 @@ export default function HomeCTA() {
         <img src={bg} alt="ctabanner" className="absolute inset-0 w-full h-full object-cover group" />
         <div className="absolute inset-0 bg-black/70"></div>
         <div className="relative z-10 flex flex-col items-center justify-center gap-6 text-center px-4">
-            <h3 className="text-4xl md:text-6xl md:max-w-2xl font-extrabold text-white">IT Solutions & Services at your Fingertips</h3>
+            <h3 className="text-3xl md:text-6xl md:max-w-2xl font-extrabold text-white">IT Solutions & Services at your Fingertips</h3>
             <Button variant="black" hoverBg="primary" className="px-12 rounded-none py-4">Get in Touch</Button>
         </div>
     </div>

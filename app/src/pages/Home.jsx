@@ -5,6 +5,7 @@ import HomeCTA from "../components/HomeCTA";
 import HomeHeroCard from "../components/HomeHeroCard";
 import HomeProjects from "../components/HomeProjects";
 import HomeServices from "../components/HomeServices";
+import HomeTeam from "../components/HomeTeam";
 import { services } from "../utils/data";
 
 const Home = () => {
@@ -51,6 +52,11 @@ const Home = () => {
       {/* call to action */}
       <section className="my-10">
         <HomeCTA />
+      </section>
+
+      {/* our team */}
+      <section className="my-10">
+        <HomeTeam />
       </section>
 
     </div>

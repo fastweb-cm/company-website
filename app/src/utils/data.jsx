@@ -3,6 +3,8 @@ import { Facebook, Twitter, Linkedin, Github, Mail, Phone,GlobeLock,
 import project1 from "../assets/backgrounds/project1.jpg";
 import project2 from "../assets/backgrounds/project2.jpg";
 import project3 from "../assets/backgrounds/project3.jpg";
+import ichami from "../assets/images/ichami.jpeg";
+import Drpeter from "../assets/images/Drpeter.png";
 
 export const navLinks = [
     { name: "Home", href: "/" },
@@ -114,6 +116,40 @@ export const countdownData = [
     value: 99,
     icon: ThumbsUp,
     suffix: "%"
+  }
+]
+
+export const team = [
+  {
+    name: "Dr. Peter Leke",
+    role: "CEO",
+    photo: Drpeter,
+    socialLinks: [
+      { icon: <Facebook size={20} />, href: "https://facebook.com" },
+      { icon: <Twitter size={20} />, href: "https://twitter.com" },
+      { icon: <Linkedin size={20} />, href: "https://linkedin.com" },
+    ]
+  },
+  {
+    name: "Ichami Brandon",
+    role: "Developer",
+    photo: ichami,
+    socialLinks: [
+      { icon: <Facebook size={20} />, href: "https://facebook.com" },
+      { icon: <Twitter size={20} />, href: "https://twitter.com" },
+      { icon: <Linkedin size={20} />, href: "https://linkedin.com" },
+    ]
+  },
+
+  {
+    name: "Dr. Peter Leke",
+    role: "CEO",
+    photo: Drpeter,
+    socialLinks: [
+      { icon: <Facebook size={20} />, href: "https://facebook.com" },
+      { icon: <Twitter size={20} />, href: "https://twitter.com" },
+      { icon: <Linkedin size={20} />, href: "https://linkedin.com" },
+    ]
   }
 ]
 
