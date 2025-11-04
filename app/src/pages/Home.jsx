@@ -1,6 +1,7 @@
 import HeroSection from "../components/HeroSection";
 import HomeAbout from "../components/HomeAbout";
 import HomeCountdown from "../components/HomeCountdown";
+import HomeCTA from "../components/HomeCTA";
 import HomeHeroCard from "../components/HomeHeroCard";
 import HomeProjects from "../components/HomeProjects";
 import HomeServices from "../components/HomeServices";
@@ -45,6 +46,11 @@ const Home = () => {
       {/* countdown */}
       <section className="my-10 px-4 md:px-8">
         <HomeCountdown />
+      </section>
+
+      {/* call to action */}
+      <section className="my-10">
+        <HomeCTA />
       </section>
 
     </div>
