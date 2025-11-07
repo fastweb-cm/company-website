@@ -30,7 +30,7 @@ export default function HomeTeam() {
             <div className="absolute inset-0 bg-background/20 pointer-events-none -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
 
             {/* Info at bottom */}
-            <div className="absolute z-50 -bottom-12 mx-auto bg-background px-20 py-4 text-center transition-all duration-500 group-hover:-translate-y-2 group-hover:py-10">
+            <div className="absolute z-10 -bottom-12 mx-auto bg-background px-20 py-4 text-center transition-all duration-500 group-hover:-translate-y-2 group-hover:py-10">
               <h4 className="text-2xl font-bold">{member.name}</h4>
               <p className="text-header-text">{member.role}</p>
               {/* Social Links: hidden by default */}

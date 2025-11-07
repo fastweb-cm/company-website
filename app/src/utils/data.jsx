@@ -153,4 +153,55 @@ export const team = [
   }
 ]
 
+export const testimonials = [
+  {
+    id: 1,
+    name: 'Dr. Peter Leke',
+    role: 'CTO, NexaTech Solutions',
+    image: Drpeter,
+    feedback:
+      'Collaborating with this team has been a game changer for our digital transformation goals. Their technical expertise and commitment to delivering scalable solutions are unmatched.',
+  },
+  {
+    id: 2,
+    name: 'Ubangatuh Brandong Ichami',
+    role: 'Lead Developer, FastWebCM',
+    image: ichami,
+    feedback:
+      'A highly skilled and reliable IT partner. Their ability to turn complex requirements into seamless, high-performing applications truly sets them apart.',
+  },
+  {
+    id: 3,
+    name: 'Sarah Johnson',
+    role: 'Project Manager, CloudEdge Systems',
+    image: ichami,
+    feedback:
+      'Exceptional experience from start to finish. The team was innovative, proactive, and always went the extra mile to ensure our project exceeded expectations.',
+  },
+];
+
+export const faqs = [
+  {
+    question: "What services does your IT consultancy provide?",
+    answer:
+      "We offer software development, cloud migration, cybersecurity, IT support, and digital transformation services.",
+  },
+  {
+    question: "Do you offer support for small businesses?",
+    answer:
+      "Yes, we support startups, SMEs, and large enterprises with scalable IT solutions.",
+  },
+  {
+    question: "How do you charge for your services?",
+    answer:
+      "Our pricing model depends on the project complexity. We offer hourly rates, fixed project pricing, and retainer plans.",
+  },
+  {
+    question: "Do you provide post-deployment support?",
+    answer:
+      "Absolutely! We offer maintenance packages, bug fixing, monitoring, and 24/7 support options.",
+  },
+];
+
+
   

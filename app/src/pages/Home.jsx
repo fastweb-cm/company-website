@@ -1,3 +1,4 @@
+import Faq from "../components/Faq";
 import HeroSection from "../components/HeroSection";
 import HomeAbout from "../components/HomeAbout";
 import HomeCountdown from "../components/HomeCountdown";
@@ -6,6 +7,7 @@ import HomeHeroCard from "../components/HomeHeroCard";
 import HomeProjects from "../components/HomeProjects";
 import HomeServices from "../components/HomeServices";
 import HomeTeam from "../components/HomeTeam";
+import Testimonial from "../components/Testimonial";
 import { services } from "../utils/data";
 
 const Home = () => {
@@ -57,6 +59,15 @@ const Home = () => {
       {/* our team */}
       <section className="my-10">
         <HomeTeam />
+      </section>
+
+      {/* testimonial  */}
+      <section className="mt-10">
+        <Testimonial />
+      </section>
+
+      <section className="my-10">
+        <Faq />
       </section>
 
     </div>
