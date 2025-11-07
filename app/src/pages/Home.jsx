@@ -1,3 +1,4 @@
+import ContactSection from "../components/ContactSection";
 import Faq from "../components/Faq";
 import HeroSection from "../components/HeroSection";
 import HomeAbout from "../components/HomeAbout";
@@ -68,6 +69,10 @@ const Home = () => {
 
       <section className="my-10">
         <Faq />
+      </section>
+
+      <section className="my-10">
+        <ContactSection />
       </section>
 
     </div>
