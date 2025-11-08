@@ -18,7 +18,7 @@ export default function HeroSection() {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
 
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 hidden lg:block">
         <ParticlesComponent />
       </div>
       {/* Content */}

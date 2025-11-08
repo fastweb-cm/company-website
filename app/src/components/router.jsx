@@ -2,7 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
-import ParticlesComponent from "../pages/Particles";
+import Contact from "../pages/Contact";
+
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { index: true, element: <Home /> },
+      { path: "/contact",element: <Contact /> },
       { path: "*", element: <NotFound /> },
     ],
   },

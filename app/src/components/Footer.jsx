@@ -42,7 +42,7 @@ const Footer = () => {
         {/* contact info */}
         <div>
           <h3 className="text-xl text-secondary font-semibold mb-4">Contact</h3>
-          <p className="text-footer-text">{contactInfo.location}</p>
+          <p className="text-footer-text">{contactInfo.location.value}</p>
           <div className="flex flex-col mt-4">
             <div className="flex flex-row items-center gap-2">
               <p className="text-primary">{contactInfo.email.icon}</p>
