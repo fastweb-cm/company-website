@@ -2,7 +2,7 @@ import { motion as Motion } from "framer-motion";
 import Button from "./Button";
 import bg from '../assets/backgrounds/bg.jpg';
 import { SquareArrowOutUpRight } from "lucide-react";
-import ParticlesComponent from "./Particles";
+import ParticlesComponent from "../pages/Particles";
 
 export default function HeroSection() {
   return (
