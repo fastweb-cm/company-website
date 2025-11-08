@@ -25,7 +25,7 @@ export default function ContactSection() {
                                 Need an IT Solution?
                             </h2>
                             <p className="text-white max-w-full lg:max-w-[350px] text-start">
-                                Lorem ipsum dolor sit amet, conse ctetur adipisicing elit is simply free text
+                            We provide tailored IT solutions to help your business succeed.
                             </p>
                         </div>
                     </div>
