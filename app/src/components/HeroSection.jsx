@@ -2,7 +2,7 @@ import { motion as Motion } from "framer-motion";
 import Button from "./Button";
 import bg from '../assets/backgrounds/bg.jpg';
 import { SquareArrowOutUpRight } from "lucide-react";
-import ParticlesComponent from "../pages/Particles";
+import ParticlesComponent from "./Particles";
 
 export default function HeroSection() {
   return (
@@ -18,7 +18,7 @@ export default function HeroSection() {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
 
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 hidden lg:block">
         <ParticlesComponent />
       </div>
       {/* Content */}

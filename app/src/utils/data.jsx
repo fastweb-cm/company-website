@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Linkedin, Github, Mail, Phone,GlobeLock,
-    Code2,Smartphone, Server,Cpu,Code, Cloud, ShoppingBag,Smile,Briefcase,Clock,ThumbsUp  } from "lucide-react";
+    Code2,Smartphone, Server,Cpu,Code, Cloud, ShoppingBag,Smile,Briefcase,Clock,ThumbsUp,  
+    Navigation} from "lucide-react";
 import project1 from "../assets/backgrounds/project1.jpg";
 import project2 from "../assets/backgrounds/project2.jpg";
 import project3 from "../assets/backgrounds/project3.jpg";
@@ -24,9 +25,10 @@ export const socialLinks = [
 
 
 export const contactInfo = {
-    location: "Checkpoint, Molyko Buea",
-    email: { icon: <Mail size={20} />, value: "contact@fastwebcm.org"},
-    phone: {icon: <Phone size={20} />, value: "+237 677-196-252"},
+    phone: {icon: <Phone size={20} />, value: "+237 677-196-252",title: "Have any question?"},
+    email: { icon: <Mail size={20} />, value: "contact@fastwebcm.org",title: "Write email"},
+    location: { icon: <Navigation size={20} />, value: "Checkpoint, Molyko Buea", title: "Visit anytime"},
+
 }
 
 export const services = [
