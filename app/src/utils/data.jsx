@@ -6,6 +6,7 @@ import project2 from "../assets/backgrounds/project2.jpg";
 import project3 from "../assets/backgrounds/project3.jpg";
 import ichami from "../assets/images/ichami.jpeg";
 import Drpeter from "../assets/images/Drpeter.png";
+import service1 from "../assets/backgrounds/service1.jpg"
 
 export const navLinks = [
     { name: "Home", href: "/" },
@@ -36,26 +37,31 @@ export const services = [
     icon: GlobeLock,
     title: "System Security",
     subtitle: "Protecting your digital infrastructure from threats and vulnerabilities.",
+    banner: service1
   },
   {
     icon: Code2,
     title: "Web Development",
     subtitle: "Building high-performance, scalable, and visually stunning web applications.",
+    banner: service1
   },
   {
     icon: Smartphone,
     title: "Mobile Development",
     subtitle: "Creating intuitive and responsive mobile apps for iOS and Android platforms.",
+    banner: service1
   },
   {
     icon: Server,
     title: "Network Solutions",
     subtitle: "Designing, implementing, and managing secure and efficient network infrastructures.",
+    banner: service1
   },
   {
     icon: Cpu,
     title: "IT Consulting",
     subtitle: "Providing expert guidance to optimize your technology and digital operations.",
+    banner: service1
   },
 ];
 
