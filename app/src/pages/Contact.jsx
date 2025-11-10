@@ -24,8 +24,8 @@ export default function Contact() {
                     </div>
                     <textarea name="message" rows={6} className="px-4 w-full border border-muted focus:outline-none" placeholder="Enter Message"></textarea>
                     <div className="grid grid-cols-4 gap-2">
-                        <Button className="col-span-2 rounded-none py-4 text-center" variant="black" hoverBg="primary">SEND MESSAGE</Button>
-                        <Button className="col-span-1 rounded-none py-4 text-center"variant="black" hoverBg="primary" >RESET</Button>
+                        <Button className="col-span-3 rounded-none py-1 md:py-4 text-center" variant="black" hoverBg="primary">SEND MESSAGE</Button>
+                        <Button className="col-span-1 rounded-none py-1 md:py-4 text-center"variant="black" hoverBg="primary" >RESET</Button>
                     </div>
                 </form>
             </div>
