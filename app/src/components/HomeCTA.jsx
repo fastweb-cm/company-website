@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import bg from "../assets/backgrounds/bg.jpg"
 import Button from "./Button"
 
@@ -8,7 +9,9 @@ export default function HomeCTA() {
         <div className="absolute inset-0 bg-black/70"></div>
         <div className="relative z-10 flex flex-col items-center justify-center gap-6 text-center px-4">
             <h3 className="text-3xl md:text-6xl md:max-w-2xl font-extrabold text-white">IT Solutions & Services at your Fingertips</h3>
-            <Button variant="black" hoverBg="primary" className="px-12 rounded-none py-4">Get in Touch</Button>
+            <Link to="/contact">
+              <Button variant="black" hoverBg="primary" className="px-12 rounded-none py-4">Get in Touch</Button>
+            </Link>
         </div>
     </div>
   )

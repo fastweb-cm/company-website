@@ -1,21 +1,24 @@
 import React from 'react'
-import { navLinks, socialLinks, contactInfo } from '../utils/data'
+import { navLinks, socialLinks, contactInfo, services } from '../utils/data'
 import Button from './Button';
 import { ArrowRight } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Company Info */}
         <div>
-          <h2 className="text-2xl font-bold mb-4 text-white">Fast<span className="text-primary">Web</span></h2>
+          <Link to="/" className="flex items-center gap-2 mb-2">
+            <img src="/logo.png" alt="fastweb-logo" width={54} height={54} />
+            <h2 className="text-2xl font-bold text-white">Fast<span className="text-primary">Web</span></h2>
+          </Link>
           <p className="text-sm text-footer-text">
             We provide cutting-edge IT solutions, web & mobile applications,
             networking, and IT consulting services.
           </p>
-          <Button  icon={ArrowRight} iconPosition='right' className='rounded-md py-4 my-6 hover:text-text' >Discover More</Button>
+          <Link to="/about"><Button  icon={ArrowRight} iconPosition='right' className='rounded-md py-4 my-6 hover:text-text' >Discover More</Button></Link>
         </div>
 
         {/* Quick Links */}
@@ -34,6 +37,27 @@ const Footer = () => {
                 >
                   {link.name}
                 </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* services */}
+        <div>
+          <h3 className="text-xl text-secondary font-semibold mb-4">Services</h3>
+          <ul className="space-y-2">
+            {services.map((service,index) => (
+              <li key={index} >
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="relative
+                text-footer-text
+                  transition-colors duration-300 ease-in-out
+                  after:content-[''] after:absolute after:left-0 after:-bottom-1.5 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 after:ease-in-out
+                hover:text-secondary hover:after:w-full"
+                >
+                  {service.title}
+                </Link>
               </li>
             ))}
           </ul>

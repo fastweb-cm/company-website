@@ -3,6 +3,7 @@ import { services } from '../utils/data'
 import iconlines from "../assets/backgrounds/iconlines.png"
 import shape1 from "../assets/backgrounds/shape1.jpg"
 import Button from './Button'
+import { Link } from 'react-router-dom'
 
 export default function HomeServices() {
   return (
@@ -13,7 +14,7 @@ export default function HomeServices() {
                 <h4 className="text-5xl capitalize">we offer full range services</h4>
             </div>
             {services.map((service,index) => (
-                <div
+                <Link to={`/services/${service.slug}`}
                 className='relative w-full h-[350px] bg-background rounded-none overflow-hidden group cursor-pointer'
                 key={service.title}
                 >
@@ -36,12 +37,14 @@ export default function HomeServices() {
                         <h4 className='font-extrabold md:max-w-md text-2xl group-hover:text-secondary'>{service.title}</h4>
                         <p className="text-header-text group-hover:text-muted/70">{service.subtitle}</p>
                     </div>
-                </div>
+                </Link>
             ))}
             <div className="lg:col-span-2 px-8 py-8 rounded-none bg-background h-full w-full flex flex-col justify-center items-start gap-6">
                 <h3 className="text-3xl font-extrabold">Looking for a custom solution?</h3>
                 <p className="text-header-text">We can help you build a tailored solution that fits your unique business needs. Contact us today to discuss your project requirements and get a free quote.</p>
-                <Button className='uppercase rounded-none px-8 py-4' hoverBg='black'>contact us now</Button>
+                <Link to="/contact">
+                    <Button className='uppercase rounded-none px-8 py-4' hoverBg='black'>contact us now</Button>
+                </Link>
 
             </div>
         </div>

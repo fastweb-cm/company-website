@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ContactSection from "../components/ContactSection";
 import Faq from "../components/Faq";
 import HeroSection from "../components/HeroSection";
@@ -21,14 +22,14 @@ const Home = () => {
       <section className="px-4 md:px-8 my-10 md:-mt-10">
         <div className="flex flex-wrap justify-center gap-6 mx-auto">
           {services.map((service, index) => (
-            <div className="flex-1 min-w-[300px] max-w-[350px]">
+            <Link to={`/services/${service.slug}`} className="flex-1 min-w-[300px] max-w-[350px]">
               <HomeHeroCard
                 key={index}
                 icon={service.icon}
                 title={service.title}
                 subtitle={service.subtitle}
               />
-            </div>
+            </Link>
           ))}
         </div>
       </section>
