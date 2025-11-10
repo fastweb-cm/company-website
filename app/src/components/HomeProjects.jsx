@@ -4,8 +4,9 @@ import pattern from "../assets/backgrounds/pattern.jpg";
 import SectionHeaderText from "./SectionHeaderText";
 import { projects } from "../utils/data";
 import { MoveRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-export default function HomeProjects() {
+export default function HomeProjects({show = true}) {
   const scrollRef = useRef(null);
 
   // Auto scroll effect
@@ -41,7 +42,7 @@ export default function HomeProjects() {
 
       <div className="relative z-10">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row gap-6 md:justify-between items-center">
+        {show && <div className="flex flex-col md:flex-row gap-6 md:justify-between items-center">
           <div className="flex flex-col gap-4 md:w-1/2">
             <SectionHeaderText title="RECENTLY COMPLETED WORK" color="text-white/90" />
             <h4 className="text-4xl lg:text-5xl capitalize text-secondary leading-tight">
@@ -52,7 +53,7 @@ export default function HomeProjects() {
             We’ve built innovative digital solutions across industries — from
             web platforms to mobile applications that deliver real impact.
           </p>
-        </div>
+        </div>}
 
         {/* Carousel Container */}
         <div
@@ -73,9 +74,11 @@ export default function HomeProjects() {
 
               {/* Hover top-right button */}
               <div className="absolute top-10 right-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-20">
-                <button className="flex items-center justify-center shrink-0 h-12 w-12 rounded-full border border-white text-white hover:bg-white/10 cursor-pointer transition">
-                  <MoveRight size={16} />
-                </button>
+                <Link to={`/projects/${project.slug}`}>
+                  <button className="flex items-center justify-center shrink-0 h-12 w-12 rounded-full border border-white text-white hover:bg-white/10 cursor-pointer transition">
+                    <MoveRight size={16} />
+                  </button>
+                </Link>
               </div>
 
               {/* Text content */}
