@@ -4,7 +4,8 @@ import Drpeter from "../assets/images/Drpeter.png"
 import Button from "./Button";
 import {motion as Motion} from "framer-motion"
 import SectionHeaderText from "./SectionHeaderText";
-export default function HomeAbout() {
+import { Link } from "react-router-dom";
+export default function HomeAbout({show = true}) {
   return (
     <section className="relative py-10 bg-background overflow-hidden">
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
@@ -86,9 +87,11 @@ export default function HomeAbout() {
             that is both reliable and forward-thinking. At our core, we believe that
             innovation and collaboration lead to lasting digital success.
           </p>
-          <Button hoverBg="primary" variant="muted" className="rounded-none md:w-1/2 uppercase py-3 px-10 font-extrabold hover:text-secondary">
-            discover more
-          </Button>
+          {show && <Link to="/about">
+              <Button hoverBg="primary" variant="muted" className="rounded-none md:w-1/2 uppercase py-3 px-10 font-extrabold hover:text-secondary">
+                discover more
+              </Button>
+          </Link>}
         </div>
       </div>
     </section>

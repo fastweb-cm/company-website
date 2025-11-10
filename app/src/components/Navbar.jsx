@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { navLinks, contactInfo, socialLinks } from '../utils/data';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, Clock } from "lucide-react";
 import Button from './Button';
 
@@ -12,9 +12,12 @@ const Navbar = () => {
       {/* Top Navbar */}
       <div className="flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <h1 className="font-bold tracking-wide">
-          Fast<span className="text-primary">Web</span>
-        </h1>
+        <Link to="/" className="flex items-center gap-2">
+          <img src="/logo.png" alt="logo" width={32} height={32} />
+          <h1 className="font-bold tracking-wide">
+            Fast<span className="text-primary">Web</span>
+          </h1>
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8">
@@ -41,11 +44,11 @@ const Navbar = () => {
         </ul>
 
         {/* Desktop Button */}
-        <div className="hidden md:block">
+        <Link to="/contact" className="hidden md:block">
           <Button hoverBg="black" className="rounded-none py-3 px-10 font-extrabold hover:text-secondary">
             Get A Quote
           </Button>
-        </div>
+        </Link>
 
         {/* Mobile Menu Button */}
         <button
@@ -65,7 +68,10 @@ const Navbar = () => {
         <div className="flex-1 overflow-y-auto scrollbar-hide flex flex-col">
           {/* Header */}
           <div className="flex justify-between px-6 py-4 border-b border-secondary">
-            <h2 className="text-xl font-semibold text-white">FastWeb</h2>
+            <Link className="flex items-center gap-2">
+              <img src="/logo.png" alt="logo" width={32} height={32} />
+              <h2 className="text-xl font-semibold text-white">FastWeb</h2>
+            </Link>
             <button
               aria-label="close"
               onClick={() => setIsOpen(false)}

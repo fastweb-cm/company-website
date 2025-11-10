@@ -3,6 +3,7 @@ import Button from "./Button";
 import bg from '../assets/backgrounds/bg.jpg';
 import { SquareArrowOutUpRight } from "lucide-react";
 import ParticlesComponent from "../pages/Particles";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
@@ -55,16 +56,20 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
         >
-          <Button variant="black" hoverBg="primary" icon={SquareArrowOutUpRight} iconPosition="right">
-            {`Let's Talk`}
-          </Button>
-          <Button
-            variant="outline"
-            className="px-6 py-3 hover:text-black"
-            hoverBg="secondary"
-          >
-            Read More
-          </Button>
+          <Link to="/contact">
+            <Button variant="black" className="py-3 px-6" hoverBg="primary" icon={SquareArrowOutUpRight} iconPosition="right">
+              {`Let's Talk`}
+            </Button>
+          </Link>
+          <Link to="/services">
+            <Button
+              variant="outline"
+              className="px-6 py-3 hover:text-black"
+              hoverBg="secondary"
+            >
+              Read More
+            </Button>
+          </Link>
         </Motion.div>
       </Motion.div>
     </section>
