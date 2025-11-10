@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import Contact from "../pages/Contact";
 import Services from "../pages/Services";
+import ServiceDetails from "../pages/ServiceDetails";
 
 
 const router = createBrowserRouter([
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "/contact",element: <Contact /> },
       { path: "/services",element: <Services /> },
+      { path: "/services/:slug", element: <ServiceDetails /> },
       { path: "*", element: <NotFound /> },
     ],
   },

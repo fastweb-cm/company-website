@@ -1,6 +1,7 @@
 import PageBanner from "../components/PageBanner"
 import { services } from "../utils/data"
 import { MoveRight } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export default function Services() {
   return (
@@ -11,7 +12,9 @@ export default function Services() {
                 <div key={index} className="border border-muted p-4">
                     <div className="flex flex-col gap-6 group">
                         <div className="relative h-60 w-full">
-                            <img src={service.banner} alt="service banner1" className="w-full h-full object-cover overflow-hidden transition-transform group-hover:scale-105 duration-500 ease-in-out" />
+                            <Link to={`/services/${service.slug}`}>
+                                <img src={service.banner} alt="service banner1" className="w-full h-full object-cover overflow-hidden transition-transform group-hover:scale-105 duration-500 ease-in-out" />
+                            </Link>
                             <div className="-bottom-2 z-20 left-8 absolute">
                                 <div className="flex items-center justify-center bg-primary h-24 w-30">
                                     <service.icon size={32} className="text-white" />
@@ -20,10 +23,10 @@ export default function Services() {
                         </div>
                         <h4>{service.title}</h4>
                         <p className="text-header-text leading-relaxed">{service.subtitle}</p>
-                        <div className="flex flex-row gap-2 items-center cursor-pointer group/readmore">
+                        <Link to={`/services/${service.slug}`} className="flex flex-row gap-2 items-center cursor-pointer group/readmore">
                             <p className="text-header-text">Read More</p>
-                            <MoveRight size={24} className="font-bold group-hover/readmore:hidden transition duration-300 ease-in-out"/>
-                        </div>
+                            <MoveRight size={24} className="font-bold group-hover/readmore:hidden transition duration-300 ease-in-out text-text"/>
+                        </Link>
                     </div>
 
                 </div>
