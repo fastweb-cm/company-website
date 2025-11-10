@@ -37,31 +37,41 @@ export const services = [
     icon: GlobeLock,
     title: "System Security",
     subtitle: "Protecting your digital infrastructure from threats and vulnerabilities.",
-    banner: service1
+    banner: service1,
+    slug: "system-security",
+    description: "We help organizations strengthen their cybersecurity posture through vulnerability assessments, penetration testing, malware protection, and continuous monitoring. Our goal is to ensure your systems remain resilient against cyberattacks and unauthorized access."
   },
   {
     icon: Code2,
     title: "Web Development",
     subtitle: "Building high-performance, scalable, and visually stunning web applications.",
-    banner: service1
+    banner: service1,
+    slug: "web-development",
+    description: "Our web development services encompass front-end and back-end development, e-commerce solutions, content management systems, and progressive web apps. We leverage modern frameworks and technologies to deliver seamless user experiences that drive engagement and conversions."
   },
   {
     icon: Smartphone,
     title: "Mobile Development",
     subtitle: "Creating intuitive and responsive mobile apps for iOS and Android platforms.",
-    banner: service1
+    banner: service1,
+    slug: "mobile-development",
+    description: "We specialize in developing cross-platform and native mobile applications that cater to your business needs. From concept to deployment, we ensure your app is user-friendly, feature-rich, and optimized for performance across all devices."
   },
   {
     icon: Server,
     title: "Network Solutions",
     subtitle: "Designing, implementing, and managing secure and efficient network infrastructures.",
-    banner: service1
+    banner: service1,
+    slug: "network-solutions",
+    description: "Our network solutions include LAN/WAN design, VPN setup, firewall configuration, and network monitoring. We ensure your network is robust, scalable, and secure, enabling seamless connectivity and data flow across your organization."
   },
   {
     icon: Cpu,
     title: "IT Consulting",
     subtitle: "Providing expert guidance to optimize your technology and digital operations.",
-    banner: service1
+    banner: service1,
+    slug: "it-consulting",
+    description: "Our IT consulting services help businesses align their technology strategies with their goals. We offer insights on digital transformation, cloud adoption, IT governance, and technology roadmaps to drive innovation and efficiency."
   },
 ];
 

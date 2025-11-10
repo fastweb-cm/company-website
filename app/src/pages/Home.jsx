@@ -8,6 +8,7 @@ import HomeHeroCard from "../components/HomeHeroCard";
 import HomeProjects from "../components/HomeProjects";
 import HomeServices from "../components/HomeServices";
 import HomeTeam from "../components/HomeTeam";
+import SectionHeaderText from "../components/SectionHeaderText";
 import Testimonial from "../components/Testimonial";
 import { services } from "../utils/data";
 
@@ -67,7 +68,11 @@ const Home = () => {
         <Testimonial />
       </section>
 
-      <section className="my-10">
+      <section className="my-10 px-4 md:px-8">
+        <SectionHeaderText title="QUESTIONS & ANSWERS" />
+        <h2 className="text-3xl md:text-5xl capitalize md:leading-16 mb-6">
+          see frequently asked questions
+        </h2>
         <Faq />
       </section>
 

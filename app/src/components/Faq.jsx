@@ -21,12 +21,7 @@ export default function Faq() {
   };
 
   return (
-    <div className="px-4 md:px-8">
-      <SectionHeaderText title="QUESTIONS & ANSWERS" />
-      <h2 className="text-3xl md:text-5xl capitalize md:leading-16 mb-6">
-        see frequently asked questions
-      </h2>
-
+    <div>
       {faqs.map((faq, index) => {
         const isActive = expanded === index;
 
