@@ -82,7 +82,8 @@ export const projects = [
     description:
       "A real-time analytics dashboard for finance companies to visualize transactions, revenue streams, and client activities using React, Node.js, and MongoDB.",
     icon: Code,
-    image: project1, // placeholder path
+    image: project1,
+    slug: "fin-sync"
   },
   {
     title: "QuickCart – E-commerce Platform",
@@ -91,6 +92,7 @@ export const projects = [
       "An all-in-one shopping solution with secure payments, advanced search filters, and real-time delivery tracking powered by Next.js and Stripe.",
     icon: ShoppingBag,
     image: project2,
+    slug: "quick-cart"
   },
   {
     title: "NovaBank Mobile",
@@ -99,6 +101,7 @@ export const projects = [
       "A cross-platform mobile banking app offering seamless transfers, biometric login, and instant loan services built with React Native and Firebase.",
     icon: Smartphone,
     image: project3,
+    slug: "nova-bank"
   },
   {
     title: "CloudNet Suite",
@@ -107,6 +110,7 @@ export const projects = [
       "A cloud-based system for deploying and monitoring enterprise workloads with auto-scaling and container orchestration using AWS and Kubernetes.",
     icon: Cloud,
     image: project1,
+    slug: "cloudnet-suite"
   },
 ];
 

@@ -18,7 +18,7 @@ const Footer = () => {
             We provide cutting-edge IT solutions, web & mobile applications,
             networking, and IT consulting services.
           </p>
-          <Link to="/about"><Button  icon={ArrowRight} iconPosition='right' className='rounded-md py-4 my-6 hover:text-text' >Discover More</Button></Link>
+          <Link to="/about"><Button  icon={ArrowRight} iconPosition='right' className='rounded-md lg:py-4 my-6 text-xs lg:text-md hover:text-text' >Discover More</Button></Link>
         </div>
 
         {/* Quick Links */}
@@ -73,8 +73,8 @@ const Footer = () => {
               <p className="text-secondary">{contactInfo.email.value}</p>
             </div>
             <div className="flex flex-row items-center gap-2">
-              <p className="text-primary">{contactInfo.phone.icon}</p>
-              <p className="text-secondary">{contactInfo.phone.value}</p>
+              <p className="text-primary text-xs lg:text-md">{contactInfo.phone.icon}</p>
+              <p className="text-secondary text-xs lg:text-md">{contactInfo.phone.value}</p>
             </div>
           </div>
         </div>
