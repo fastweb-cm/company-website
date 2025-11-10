@@ -9,9 +9,13 @@ export default function About() {
   return (
     <div>
         <PageBanner title="About Us" />
-        <HomeAbout show={false} />
+        <div className="px-4 md:px-8">
+            <HomeAbout show={false} />
+        </div>
         <div className="mt-10"><HomeTeam /></div>
-        <div className="mt-10"><HomeCountdown /></div>
+        <div className="px-4 md:px-8">
+            <div className="mt-10"><HomeCountdown /></div>
+        </div>
         <div className="mt-10"><Testimonial /></div>
     </div>
   )
