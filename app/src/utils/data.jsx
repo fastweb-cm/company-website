@@ -83,6 +83,20 @@ export const projects = [
       "A real-time analytics dashboard for finance companies to visualize transactions, revenue streams, and client activities using React, Node.js, and MongoDB.",
     icon: Code,
     image: project1,
+    about: `There are many variations of passages of psum available, but the majority have suffered alteration in 
+    some form, by injected humour, or randomised words which don't look even slightly believable. If you are going
+    to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of 
+    text. Fustered impressive manifest crud opened inside owing punitively around forewent and after wasteful telling
+    sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some tyran nically talkative jepers crud decore recteque philosophia eumuas.`,
+    challengeSolution: `Methods empowerment. Dramatically architect go forward opportunities credibly revolutionize front-end initiatives for interoperable outsourcing. 
+    Conveniently repurpose market-driven deliverables without holistic potentialitiess distinctively integrate`,
+    client: "HG Insurance",
+    value: "$5,000",
+    demoLink: "app.fastwebcm.org",
+    accounts: [
+      {role: "admin",password:"123456"},
+      {role: "fin", password: "123456"},
+    ],
     slug: "fin-sync"
   },
   {
@@ -92,6 +106,20 @@ export const projects = [
       "An all-in-one shopping solution with secure payments, advanced search filters, and real-time delivery tracking powered by Next.js and Stripe.",
     icon: ShoppingBag,
     image: project2,
+    about: `There are many variations of passages of psum available, but the majority have suffered alteration in 
+    some form, by injected humour, or randomised words which don't look even slightly believable. If you are going
+    to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of 
+    text. Fustered impressive manifest crud opened inside owing punitively around forewent and after wasteful telling
+    sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some tyran nically talkative jepers crud decore recteque philosophia eumuas.`,
+    challengeSolution: `Methods empowerment. Dramatically architect go forward opportunities credibly revolutionize front-end initiatives for interoperable outsourcing. 
+    Conveniently repurpose market-driven deliverables without holistic potentialitiess distinctively integrate`,
+    client: "HG Insurance",
+    value: "$5,000",
+    demoLink: "app.fastwebcm.org",
+    accounts: [
+      {role: "admin",password:"123456"},
+      {role: "fin", password: "123456"},
+    ],
     slug: "quick-cart"
   },
   {
@@ -101,6 +129,20 @@ export const projects = [
       "A cross-platform mobile banking app offering seamless transfers, biometric login, and instant loan services built with React Native and Firebase.",
     icon: Smartphone,
     image: project3,
+    about: `There are many variations of passages of psum available, but the majority have suffered alteration in 
+    some form, by injected humour, or randomised words which don't look even slightly believable. If you are going
+    to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of 
+    text. Fustered impressive manifest crud opened inside owing punitively around forewent and after wasteful telling
+    sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some tyran nically talkative jepers crud decore recteque philosophia eumuas.`,
+    challengeSolution: `Methods empowerment. Dramatically architect go forward opportunities credibly revolutionize front-end initiatives for interoperable outsourcing. 
+    Conveniently repurpose market-driven deliverables without holistic potentialitiess distinctively integrate`,
+    client: "HG Insurance",
+    value: "$5,000",
+    demoLink: "app.fastwebcm.org",
+    accounts: [
+      {role: "admin",password:"123456"},
+      {role: "fin", password: "123456"},
+    ],
     slug: "nova-bank"
   },
   {
@@ -110,6 +152,20 @@ export const projects = [
       "A cloud-based system for deploying and monitoring enterprise workloads with auto-scaling and container orchestration using AWS and Kubernetes.",
     icon: Cloud,
     image: project1,
+    about: `There are many variations of passages of psum available, but the majority have suffered alteration in 
+    some form, by injected humour, or randomised words which don't look even slightly believable. If you are going
+    to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of 
+    text. Fustered impressive manifest crud opened inside owing punitively around forewent and after wasteful telling
+    sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some tyran nically talkative jepers crud decore recteque philosophia eumuas.`,
+    challengeSolution: `Methods empowerment. Dramatically architect go forward opportunities credibly revolutionize front-end initiatives for interoperable outsourcing. 
+    Conveniently repurpose market-driven deliverables without holistic potentialitiess distinctively integrate`,
+    client: "HG Insurance",
+    value: "$5,000",
+    demoLink: "app.fastwebcm.org",
+    accounts: [
+      {role: "admin",password:"123456"},
+      {role: "fin", password: "123456"},
+    ],
     slug: "cloudnet-suite"
   },
 ];

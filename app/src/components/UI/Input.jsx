@@ -15,9 +15,9 @@ const Input = ({
   return (
     <div className={`w-full ${type === "hidden" ?"hidden" : "block"}`}>
       {type !== "hidden" && (
-        <label htmlFor={name} className="block mb-2 text-sm font-medium text-gray-700">
+        <label htmlFor={name} className="block mx-1 text-sm font-medium text-header-text">
           {label}
-          {required && <span className="text-red">*</span>}
+          {required && <span className="text-error">*</span>}
         </label>
       )}
       {type === "select" ? (
