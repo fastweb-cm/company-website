@@ -20,32 +20,27 @@ const Modal = ({ isOpen, btnx= true, btn = true, onClose, title, children }) => 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
       aria-modal="true"
       role="dialog"
     >
-      <div className="bg-gray-100 rounded-lg shadow-lg w-[90%] max-w-md mx-auto animate-fade-in-up">
-        <div className="flex items-center justify-between p-4 border-b">
-          <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+      <div className="bg-gray-100 rounded-md shadow-md animate-fade-in-up w-[80%] lg:w-[50%]">
+        <div className="flex items-center justify-between px-4 py-2 border-b border-primary">
+          <h4 className='text-sm md:text-xl'>{title}</h4>
           {btnx && (<button
             onClick={onClose}
-            className="text-gray-500 hover:text-red focus:outline-none"
+            className="text-error hover:bg-transparent cursor-pointer hover:text-red focus:outline-none"
             aria-label="Close modal"
             title='close modal'
           >
             ✕
           </button>)}
         </div>
-
-        <div className="p-4 text-gray-700">{children}</div>
-
+        <div className="px-4 py-2">{children}</div>
+        {btn &&
         <div className="flex justify-end gap-2 p-4 border-t">
-            {btn && 
-                <Button ariaLabel='close' variant="danger" onClick={onClose}>
-                    Cancel
-                </Button>
-            }
-        </div>
+          <Button>close</Button>
+        </div>}
       </div>
     </div>
   );

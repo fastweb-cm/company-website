@@ -6,6 +6,7 @@ import pattern from "../assets/backgrounds/pattern.jpg"
 import Button from '../components/Button'
 import { Mail, MoveRight, PhoneCall } from 'lucide-react'
 import Modal from '../components/UI/Modal';
+import Input from '../components/UI/Input';
 
 export default function ProjectDetails() {
   const { slug } = useParams();
@@ -21,10 +22,29 @@ export default function ProjectDetails() {
       <Modal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-        title="Request for a Live Demo Session"
+        title="Request a Live Demo"
         btn={false}
       >
-        <p>hello connecting</p>
+        <form>
+          <div className="flex flex-col gap-2 md:ga-4">
+            <Input label="Full Name" required type="text" name="name"/>
+            <Input required type="hidden" name="project" value={slug}/>
+            <div className="flex flex-col md:flex-row  items center gap-4">
+              <Input label="Email Address" required type="email" name="email"/>
+              <Input label="Phone Number" required type="tel" name="phone"/>
+            </div>
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <Input label="Company / Organisation" type="text" name="company"/>
+              <Input label="Preferred Demo Date & Time" required  type="datetime-local" name="date"/>
+            </div>
+            <div className="flex flex-col">
+              <label className='text-sm font-medium text-header-text mx-1' htmlFor="message">Additional Note</label>
+              <textarea name="message" className='border border-muted rounded-md focus:outline-none px-2 py-2 w-full'
+              cols="30"></textarea>
+            </div>
+            <Button hoverBg='black'>Submit Request</Button>
+          </div>
+        </form>
       </Modal>
 
       <PageBanner title="Project Details" />
