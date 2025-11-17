@@ -1,0 +1,15 @@
+# Node/React
+app/node_modules/
+app/build/
+app/.env
+
+# PHP
+api/vendor/
+api/.env
+api/.phpunit.result.cache
+
+# IDE / OS
+*.log
+*.DS_Store
+*.vscode/
+.idea/
