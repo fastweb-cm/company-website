@@ -1,4 +1,4 @@
-name: Deploy Vite React Website on Namecheap
+name: Deploy Vite React Website + PHP API on Namecheap
 
 on:
   push:
@@ -9,44 +9,82 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
+    env:
+      REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+
     steps:
-      # Step 1: Checkout code
+      # ---------------------------------------
+      # 1. CHECKOUT CODE
+      # ---------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
+      # ---------------------------------------
+      # 2. SETUP NODE & BUILD FRONTEND
+      # ---------------------------------------
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      # Step 3: Install dependencies
-      - name: Install dependencies
+      - name: Install frontend dependencies
         working-directory: ./app
         run: npm install
 
-      # Step 4: Build Vite app
-      - name: Build Vite App
+      - name: Build frontend (Vite)
         working-directory: ./app
         run: npm run build
 
-      # Step 5: Verify build output
-      - name: Check dist directory
-        run: |
-          echo "Listing ./app/dist contents..."
-          ls -la ./app/dist
-
-      # Step 6: Deploy to Namecheap via FTP
-      - name: Deploy to FTP Server
+      # ---------------------------------------
+      # 3. DEPLOY FRONTEND VIA FTP
+      # ---------------------------------------
+      - name: Deploy React app via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /
-          local-dir: ./app/dist/
           protocol: ftps
           port: 21
+          server-dir: /
+          local-dir: ./app/dist/
+
+      # ---------------------------------------
+      # 4. SETUP PHP API
+      # ---------------------------------------
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, pdo, pdo_mysql, curl
+
+      - name: Install Composer
+        run: sudo apt-get install -y composer
+
+      - name: Install PHP dependencies
+        working-directory: ./api
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Create PHP .env file
+        run: |
+          echo "Creating .env file for API..."
+          cat <<EOF > ./api/.env
+            SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}
+            SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
+          EOF
+
+      # ---------------------------------------
+      # 5. DEPLOY PHP API VIA SFTP
+      # ---------------------------------------
+      - name: Deploy PHP API via SCP
+        uses: appleboy/scp-action@v0.1.0
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: 22
+          source: "./api/"
+          target: "/api/"
