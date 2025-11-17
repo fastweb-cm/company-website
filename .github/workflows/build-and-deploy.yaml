@@ -13,7 +13,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
+      # -------------------------------------------------
       # 2. Build React App
+      # -------------------------------------------------
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -27,32 +29,46 @@ jobs:
         working-directory: ./app
         run: npm run build
 
-      # 3. Upload React dist folder to root
+      # -------------------------------------------------
+      # 3. Deploy React Build to / (public_html)
+      # -------------------------------------------------
       - name: Deploy React App
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /
-          local-dir: ./app/dist/
-          port: 21
           protocol: ftps
+          port: 21
+          local-dir: ./app/dist/
+          server-dir: /
+          # 🔥 Prevent deletion of server-side files like .htaccess
+          dangerous-clean-slate: false
 
-      # 4. Create .env locally for API
+      # -------------------------------------------------
+      # 4. Prepare API
+      # -------------------------------------------------
       - name: Create PHP API .env file
         run: |
           echo "SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}" > ./api/.env
           echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> ./api/.env
 
-      # 5. Deploy PHP API via FTP
+      # -------------------------------------------------
+      # 5. Deploy PHP API
+      # -------------------------------------------------
       - name: Deploy PHP API
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /api/
-          local-dir: ./api/
-          port: 21
           protocol: ftps
+          port: 21
+          local-dir: ./api/
+          server-dir: /api/
+          # 🔥 Prevent wiping the folder
+          dangerous-clean-slate: false
+          # 🔥 Ignore vendor so they don’t get stuck or corrupted
+          exclude: |
+            **/vendor/**
+            **/*.log
