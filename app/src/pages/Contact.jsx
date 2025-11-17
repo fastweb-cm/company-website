@@ -10,11 +10,13 @@ import emailjs from "@emailjs/browser";
 export default function Contact() {
     const [formData, setFormData] = useState({
         name: "",
-        email: "",
+        reply_to: "",
         subject: "",
         phone: "",
         message: ""
     });
+
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         setFormData({
@@ -26,7 +28,7 @@ export default function Contact() {
     const handleReset = () => {
         setFormData({
             name: "",
-            email: "",
+            reply_to: "",
             subject: "",
             phone: "",
             message: ""
@@ -35,15 +37,18 @@ export default function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        emailjs.send("service_bm0idhz","template_kz9qnaf", formData, "zzabxBmSCzZfvN7EF")
+        setLoading(true)
+        emailjs.send("service_5ic9aji","template_a23rudv", formData, "y5Ldt1FKpF_LTyYJZ")
 
         .then( () => {
             toast.success("Message sent successfully!")
             handleReset();
+            setLoading(false);
         })
         .catch( (error) => {
             console.error("Error submitting form:", error);
             toast.error("Failed to send message. Please try again later.");
+            setLoading(false);
         })
     }
   return (
@@ -56,7 +61,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} onReset={handleReset}>
                     <div className="flex flex-col md:flex-row gap-4 items-center mb-2">
                         <Input onChange={handleChange} type="text" name="name" placeholder="Enter Name" />
-                        <Input onChange={handleChange} type="email" name="email" placeholder="Enter Email" />
+                        <Input onChange={handleChange} type="email" name="reply_to" placeholder="Enter Email" />
                     </div>
                     <div className="flex flex-col md:flex-row gap-4 items-center mb-4">
                         <Input onChange={handleChange} type="text" name="subject" placeholder="Enter Subject" />
@@ -64,7 +69,7 @@ export default function Contact() {
                     </div>
                     <textarea onChange={handleChange} name="message" rows={6} className="px-4 w-full border border-muted focus:outline-none" placeholder="Enter Message"></textarea>
                     <div className="grid grid-cols-4 gap-2">
-                        <Button type="submit" className="col-span-3 rounded-none py-1 md:py-4 text-center" variant="black" hoverBg="primary">SEND MESSAGE</Button>
+                        <Button loading={loading} type="submit" className="col-span-3 rounded-none py-1 md:py-4 text-center" variant="black" hoverBg="primary">SEND MESSAGE</Button>
                         <Button type="reset" className="col-span-1 rounded-none py-1 md:py-4 text-center"variant="black" hoverBg="primary" >RESET</Button>
                     </div>
                 </form>
