@@ -48,27 +48,27 @@ jobs:
       # -------------------------------------------------
       # 4. Prepare API
       # -------------------------------------------------
-      - name: Create PHP API .env file
-        run: |
-          echo "SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}" > ./api/.env
-          echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> ./api/.env
+      # - name: Create PHP API .env file
+      #   run: |
+      #     echo "SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}" > ./api/.env
+      #     echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> ./api/.env
 
       # -------------------------------------------------
       # 5. Deploy PHP API
       # -------------------------------------------------
-      - name: Deploy PHP API
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          local-dir: ./api/
-          server-dir: /api/
-          # 🔥 Prevent wiping the folder
-          dangerous-clean-slate: false
-          # 🔥 Ignore vendor so they don’t get stuck or corrupted
-          exclude: |
-            **/vendor/**
-            **/*.log
+      # - name: Deploy PHP API
+      #   uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      #   with:
+      #     server: ${{ secrets.FTP_HOST }}
+      #     username: ${{ secrets.FTP_USERNAME }}
+      #     password: ${{ secrets.FTP_PASSWORD }}
+      #     protocol: ftps
+      #     port: 21
+      #     local-dir: ./api/
+      #     server-dir: /api/
+      #     # 🔥 Prevent wiping the folder
+      #     dangerous-clean-slate: false
+      #     # 🔥 Ignore vendor so they don’t get stuck or corrupted
+      #     exclude: |
+      #       **/vendor/**
+      #       **/*.log

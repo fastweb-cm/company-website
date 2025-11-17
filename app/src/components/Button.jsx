@@ -11,12 +11,13 @@ export default function Button({
   hoverAnimation = "slide", // slide | fill | pop
   hoverBg = "secondary", // black | primary | secondary | white etc
   disabled = false,
+  loading = false, // new prop
+  loadingText = "Sending...",
   className = "",
 }) {
   const baseStyles =
     "relative inline-flex items-center justify-center cursor-pointer overflow-hidden transition-all duration-300 focus:outline-none focus:ring-0 focus:ring-offset-0";
 
-  // Static mapping for Tailwind to recognize all potential bg colors
   const hoverBgColors = {
     black: "before:bg-black",
     white: "before:bg-white",
@@ -49,7 +50,7 @@ export default function Button({
     <button
       type={type}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || loading} // disable while loading
       className={cn(
         baseStyles,
         variants[variant],
@@ -58,16 +59,44 @@ export default function Button({
         className
       )}
     >
-      {Icon && iconPosition === "left" && (
-        <span className="relative z-10 mr-2">
-          <Icon className="w-5 h-5" />
+      {loading ? (
+        <span className="relative z-10 flex items-center gap-2">
+          <svg
+            className="animate-spin h-5 w-5 text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v8H4z"
+            ></path>
+          </svg>
+          {loadingText}
         </span>
-      )}
-      <span className="relative z-10">{children}</span>
-      {Icon && iconPosition === "right" && (
-        <span className="relative z-10 ml-2">
-          <Icon className="w-5 h-5" />
-        </span>
+      ) : (
+        <>
+          {Icon && iconPosition === "left" && (
+            <span className="relative z-10 mr-2">
+              <Icon className="w-5 h-5" />
+            </span>
+          )}
+          <span className="relative z-10">{children}</span>
+          {Icon && iconPosition === "right" && (
+            <span className="relative z-10 ml-2">
+              <Icon className="w-5 h-5" />
+            </span>
+          )}
+        </>
       )}
     </button>
   );
