@@ -40,36 +40,36 @@ const Home = () => {
       </section>
 
       {/* services */}
-      <section className="my-10">
+      <section className="mt-10">
         <HomeServices />
       </section>
 
       {/* projects */}
-      <section className="my-10">
+      <section className="mt-10">
         <HomeProjects />
       </section>
 
       {/* countdown */}
-      <section className="my-10 px-4 md:px-8">
+      <section className="mt-10 px-4 md:px-8">
         <HomeCountdown />
       </section>
 
       {/* call to action */}
-      <section className="my-10">
+      <section>
         <HomeCTA />
       </section>
 
       {/* our team */}
-      <section className="my-10">
-        <HomeTeam />
+      <section>
+        <HomeTeam className="mt-10"/>
       </section>
 
       {/* testimonial  */}
-      <section className="mt-10">
+      <section>
         <Testimonial />
       </section>
 
-      <section className="my-10 px-4 md:px-8">
+      <section className="mt-10 px-4 md:px-8">
         <SectionHeaderText title="QUESTIONS & ANSWERS" />
         <h2 className="text-3xl md:text-5xl capitalize md:leading-16 mb-6">
           see frequently asked questions

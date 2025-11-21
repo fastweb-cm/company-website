@@ -93,8 +93,15 @@ export default function ProjectDetails() {
               <p className="text-header-text">{project.about}</p>
 
               <div className="mt-10">
-                <h4 className="text-4xl">Challenge and solution</h4>
-                <p className="text-header-text mt-4">{project.challengeSolution}</p>
+                <h4 className="text-4xl">Challenge & solution</h4>
+                {project.challengeSolution.map((item, index) => (
+                  <div key={index} className="mt-6">
+                    <h5 className="text-md font-semibold mb-2">Challenge {index+1} - {item.title}:</h5>
+                    <p className="mb-4 text-header-text">{item.challenge}</p>
+                    <h5 className="text-md font-semibold mb-2">Solution:</h5>
+                    <p className='text-header-text'> {item.solution}</p>
+                  </div>
+                ))}
               </div>
 
               <div className="rounded-md bg-muted/40 px-6 py-8">

@@ -1,12 +1,13 @@
 import { Facebook, Twitter, Linkedin, Github, Mail, Phone,GlobeLock,
     Code2,Smartphone, Server,Cpu,Code, Cloud, ShoppingBag,Smile,Briefcase,Clock,ThumbsUp,  
-    Navigation} from "lucide-react";
+    Navigation, GraduationCap} from "lucide-react";
 import project1 from "../assets/backgrounds/project1.jpg";
 import project2 from "../assets/backgrounds/project2.jpg";
 import project3 from "../assets/backgrounds/project3.jpg";
 import ichami from "../assets/images/ichami.jpeg";
 import Drpeter from "../assets/images/Drpeter.png";
 import service1 from "../assets/backgrounds/service1.jpg"
+import acadpackpro from "../assets/banners/acadpackpro.jpg";
 
 export const navLinks = [
     { name: "Home", href: "/" },
@@ -77,27 +78,40 @@ export const services = [
 
 export const projects = [
   {
-    title: "FinSync – Financial Analytics Dashboard",
-    category: "Web Application",
+    title: "Acadpack Pro",
+    category: "Web Application / School ERP",
     description:
-      "A real-time analytics dashboard for finance companies to visualize transactions, revenue streams, and client activities using React, Node.js, and MongoDB.",
-    icon: Code,
-    image: project1,
-    about: `There are many variations of passages of psum available, but the majority have suffered alteration in 
-    some form, by injected humour, or randomised words which don't look even slightly believable. If you are going
-    to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of 
-    text. Fustered impressive manifest crud opened inside owing punitively around forewent and after wasteful telling
-    sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some tyran nically talkative jepers crud decore recteque philosophia eumuas.`,
-    challengeSolution: `Methods empowerment. Dramatically architect go forward opportunities credibly revolutionize front-end initiatives for interoperable outsourcing. 
-    Conveniently repurpose market-driven deliverables without holistic potentialitiess distinctively integrate`,
-    client: "HG Insurance",
+      "Acadpack Pro is an integrated School Management System designed to streamline both academic and financial operations. It enables schools to manage student records, fee transactions, reporting, and administrative workflows from a unified and intuitive interface.",
+    icon: GraduationCap,
+    image: acadpackpro,
+    about: `Acadpack Pro is a digital transformation platform built for modern educational institutions. The system automates the entire student lifecycle—from admission, enrollment, and attendance tracking, to continuous assessment and result generation.
+    It includes a powerful finance module that manages payments, fee structures, outstanding balances, receipts, and transaction reconciliation. The interface is clean, fast, and optimized for administrators, teachers, accountants, and parents.
+    Acadpack Pro was built to solve common challenges faced by schools such as scattered student data, difficulty tracking fee payments, manual report generation, and limited transparency in academic performance.`,
+    challengeSolution: [
+      {
+        title: "Integrated Academic & Financial Management",
+        challenge: "Fragmented academic and financial processes made it difficult for schools to maintain accurate and synchronized data.",
+        solution: "Acadpack Pro centralizes academic, administrative, and financial operations into a unified platform, ensuring real-time consistency and reducing errors."
+      },
+      {
+        title: "Automated Fee Management",
+        challenge: "Manual financial tracking led to lost receipts, incorrect balances, and inconsistent reporting.",
+        solution: "The Finance Module provides digital receipts, automated balance computation, structured fee templates, and full transaction audit logs."
+      },
+      {
+        title: "Streamlined Report Generation",
+        challenge: "Teachers spent hours calculating student results and preparing report cards manually.",
+        solution: "The Academic Module automates score compilation, grading, and report card generation, reducing workload and improving accuracy."
+      }
+    ],    
+    client: "SSEC Bamenda",
     value: "$5,000",
-    demoLink: "app.fastwebcm.org",
+    demoLink: "acadpackpro.fastwebcm.org",
     accounts: [
       {role: "admin",password:"123456"},
       {role: "fin", password: "123456"},
     ],
-    slug: "fin-sync"
+    slug: "acadpack-pro"
   },
   {
     title: "QuickCart – E-commerce Platform",
@@ -111,8 +125,23 @@ export const projects = [
     to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of 
     text. Fustered impressive manifest crud opened inside owing punitively around forewent and after wasteful telling
     sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some tyran nically talkative jepers crud decore recteque philosophia eumuas.`,
-    challengeSolution: `Methods empowerment. Dramatically architect go forward opportunities credibly revolutionize front-end initiatives for interoperable outsourcing. 
-    Conveniently repurpose market-driven deliverables without holistic potentialitiess distinctively integrate`,
+    challengeSolution: [
+      {
+        title: "Integrated Academic & Financial Management",
+        challenge: "Fragmented academic and financial processes made it difficult for schools to maintain accurate and synchronized data.",
+        solution: "Acadpack Pro centralizes academic, administrative, and financial operations into a unified platform, ensuring real-time consistency and reducing errors."
+      },
+      {
+        title: "Automated Fee Management",
+        challenge: "Manual financial tracking led to lost receipts, incorrect balances, and inconsistent reporting.",
+        solution: "The Finance Module provides digital receipts, automated balance computation, structured fee templates, and full transaction audit logs."
+      },
+      {
+        title: "Streamlined Report Generation",
+        challenge: "Teachers spent hours calculating student results and preparing report cards manually.",
+        solution: "The Academic Module automates score compilation, grading, and report card generation, reducing workload and improving accuracy."
+      }
+    ], 
     client: "HG Insurance",
     value: "$5,000",
     demoLink: "app.fastwebcm.org",
@@ -134,8 +163,23 @@ export const projects = [
     to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of 
     text. Fustered impressive manifest crud opened inside owing punitively around forewent and after wasteful telling
     sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some tyran nically talkative jepers crud decore recteque philosophia eumuas.`,
-    challengeSolution: `Methods empowerment. Dramatically architect go forward opportunities credibly revolutionize front-end initiatives for interoperable outsourcing. 
-    Conveniently repurpose market-driven deliverables without holistic potentialitiess distinctively integrate`,
+    challengeSolution: [
+      {
+        title: "Integrated Academic & Financial Management",
+        challenge: "Fragmented academic and financial processes made it difficult for schools to maintain accurate and synchronized data.",
+        solution: "Acadpack Pro centralizes academic, administrative, and financial operations into a unified platform, ensuring real-time consistency and reducing errors."
+      },
+      {
+        title: "Automated Fee Management",
+        challenge: "Manual financial tracking led to lost receipts, incorrect balances, and inconsistent reporting.",
+        solution: "The Finance Module provides digital receipts, automated balance computation, structured fee templates, and full transaction audit logs."
+      },
+      {
+        title: "Streamlined Report Generation",
+        challenge: "Teachers spent hours calculating student results and preparing report cards manually.",
+        solution: "The Academic Module automates score compilation, grading, and report card generation, reducing workload and improving accuracy."
+      }
+    ], 
     client: "HG Insurance",
     value: "$5,000",
     demoLink: "app.fastwebcm.org",
@@ -157,8 +201,23 @@ export const projects = [
     to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of 
     text. Fustered impressive manifest crud opened inside owing punitively around forewent and after wasteful telling
     sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some tyran nically talkative jepers crud decore recteque philosophia eumuas.`,
-    challengeSolution: `Methods empowerment. Dramatically architect go forward opportunities credibly revolutionize front-end initiatives for interoperable outsourcing. 
-    Conveniently repurpose market-driven deliverables without holistic potentialitiess distinctively integrate`,
+    challengeSolution: [
+      {
+        title: "Integrated Academic & Financial Management",
+        challenge: "Fragmented academic and financial processes made it difficult for schools to maintain accurate and synchronized data.",
+        solution: "Acadpack Pro centralizes academic, administrative, and financial operations into a unified platform, ensuring real-time consistency and reducing errors."
+      },
+      {
+        title: "Automated Fee Management",
+        challenge: "Manual financial tracking led to lost receipts, incorrect balances, and inconsistent reporting.",
+        solution: "The Finance Module provides digital receipts, automated balance computation, structured fee templates, and full transaction audit logs."
+      },
+      {
+        title: "Streamlined Report Generation",
+        challenge: "Teachers spent hours calculating student results and preparing report cards manually.",
+        solution: "The Academic Module automates score compilation, grading, and report card generation, reducing workload and improving accuracy."
+      }
+    ], 
     client: "HG Insurance",
     value: "$5,000",
     demoLink: "app.fastwebcm.org",
