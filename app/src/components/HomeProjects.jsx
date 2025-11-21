@@ -69,7 +69,7 @@ export default function HomeProjects({show = true}) {
               transition={{ duration: 0.4 }}
             >
               {/* Overlay layers */}
-              <div className="absolute inset-0 bg-black/90 z-0"></div>
+              <div className="absolute inset-0 bg-black/70 z-0"></div>
               <div className="absolute inset-0 bg-primary group-hover:opacity-70 -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></div>
 
               {/* Hover top-right button */}

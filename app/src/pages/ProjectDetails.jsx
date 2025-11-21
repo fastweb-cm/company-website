@@ -7,11 +7,44 @@ import Button from '../components/Button'
 import { Mail, MoveRight, PhoneCall } from 'lucide-react'
 import Modal from '../components/UI/Modal';
 import Input from '../components/UI/Input';
+import { toast } from 'react-toastify';
+import emailjs from "@emailjs/browser";
 
 export default function ProjectDetails() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    from_name: "",
+    reply_to: "",
+    phone: "",
+    additional_note: "",
+    demo_date: "",
+    project_name: slug
+  });
+  const handleChange = (e) => {
+    setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+    })
+  }
+  const handleSubmit = async (e) => {
+          e.preventDefault();
+          setLoading(true)
+          emailjs.send("service_5ic9aji","template_3dhe5mk", formData, "y5Ldt1FKpF_LTyYJZ")
+  
+          .then( () => {
+              toast.success("Message sent successfully!")
+              setLoading(false);
+              setShowModal(false)
+          })
+          .catch( (error) => {
+              console.error("Error submitting form:", error);
+              toast.error("Failed to send message. Please try again later.");
+              setLoading(false);
+          })
+      }
 
   if (!project) {
     return <p className="text-center mt-10 text-error">** Project not found. **</p>;
@@ -25,24 +58,24 @@ export default function ProjectDetails() {
         title="Request a Live Demo"
         btn={false}
       >
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="flex flex-col gap-2 md:ga-4">
-            <Input label="Full Name" required type="text" name="name"/>
-            <Input required type="hidden" name="project" value={slug}/>
+            <Input label="Full Name" required type="text" onChange={handleChange} name="from_name"/>
+            <Input required type="hidden" name="project_name" onChange={handleChange} value={slug}/>
             <div className="flex flex-col md:flex-row  items center gap-4">
-              <Input label="Email Address" required type="email" name="email"/>
-              <Input label="Phone Number" required type="tel" name="phone"/>
+              <Input label="Email Address" required type="email" name="reply_to" onChange={handleChange}/>
+              <Input label="Phone Number" required type="tel" name="phone" onChange={handleChange}/>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-4">
-              <Input label="Company / Organisation" type="text" name="company"/>
-              <Input label="Preferred Demo Date & Time" required  type="datetime-local" name="date"/>
+              <Input label="Company / Organisation" type="text" name="company_name" onChange={handleChange}/>
+              <Input label="Preferred Demo Date & Time" required  type="datetime-local" name="demo_date" onChange={handleChange}/>
             </div>
             <div className="flex flex-col">
               <label className='text-sm font-medium text-header-text mx-1' htmlFor="message">Additional Note</label>
-              <textarea name="message" className='border border-muted rounded-md focus:outline-none px-2 py-2 w-full'
+              <textarea name="additional_note" onChange={handleChange} className='border border-muted rounded-md focus:outline-none px-2 py-2 w-full'
               cols="30"></textarea>
             </div>
-            <Button hoverBg='black'>Submit Request</Button>
+            <Button loading={loading} type="submit" hoverBg='black'>Submit Request</Button>
           </div>
         </form>
       </Modal>
