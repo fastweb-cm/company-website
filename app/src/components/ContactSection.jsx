@@ -1,11 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 import bg from "../assets/backgrounds/bg.jpg"
 import { PhoneCall } from 'lucide-react'
 import SectionHeaderText from './SectionHeaderText'
 import Input from './UI/Input'
 import Button from './Button'
+import { toast } from 'react-toastify'
+import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+          name: "",
+          reply_to: "",
+          subject: "New Contact Message",
+          phone: "",
+          message: ""
+      });
+  
+    const [loading, setLoading] = useState(false);
+
+    const handleChange = (e) => {
+      setFormData({
+          ...formData,
+          [e.target.name]: e.target.value
+      })
+  }
+  const handleReset = () => {
+    setFormData({
+        name: "",
+        reply_to: "",
+        subject: "",
+        phone: "",
+        message: ""
+    });
+}
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true)
+  emailjs.send("service_5ic9aji","template_a23rudv", formData, "y5Ldt1FKpF_LTyYJZ")
+
+  .then( () => {
+      toast.success("Message sent successfully!")
+      handleReset();
+      setLoading(false);
+  })
+  .catch( (error) => {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to send message. Please try again later.");
+      setLoading(false);
+  })
+}
   return (
     <div className="relative">
       {/* Background banner */}
@@ -41,18 +84,19 @@ export default function ContactSection() {
             </div>
             <div className="w-full bg-black rounded-none px-6 py-8 text-white">
                 <h2 className="text-white text-3xl mb-4">REQUEST A QUOTE</h2>
-                <form className="flex flex-col gap-4 w-full">
-                    <Input type="text" placeholder="Enter Your Name" name="name"/>
-                    <Input type="email" placeholder="Enter Your Email Address" name="email"/>
-                    <Input type="text" placeholder="Phone Number" name="phone"/>
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
+                    <Input type="text" onChange={handleChange} placeholder="Enter Your Name" name="name"/>
+                    <Input type="email" onChange={handleChange} placeholder="Enter Your Email Address" name="reply_to"/>
+                    <Input type="text" onChange={handleChange} placeholder="Phone Number" name="phone"/>
                     <textarea
                     name="message"
+                    onChange={handleChange}
                     cols="4"
                     rows="6"
                     className='border border-muted rounded-md focus:outline-none px-2 py-2 w-full'
                     placeholder="Your Message"
                     />
-                    <Button className='w-full md:w-1/2 rounded-none px-4 py-6 text-lg'>
+                    <Button loading={loading} type="submit" hoverBg='primary' className='w-full md:w-1/2 rounded-none px-4 py-6 text-lg'>
                         Send a Message
                     </Button>
                 </form>
