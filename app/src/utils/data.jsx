@@ -98,7 +98,7 @@ export const projects = [
         solution: "The system computes grades instantly and produces standardized digital report cards."
       }
     ],
-    client: "Pilot Schools",
+    client: "CUIB",
     value: "$3,000",
     demoLink: "se.acadpack.fastwebcm.org",
     accounts: [
@@ -132,7 +132,7 @@ export const projects = [
         solution: "Digital fees, receipts, outstanding alerts, and complete financial reporting eliminate guesswork."
       }
     ],
-    client: "GTHS Fundong",
+    client: "SSEC Bamenda",
     value: "$5,500",
     demoLink: "seplus.acadpack.fastwebcm.org",
     accounts: [
@@ -164,7 +164,7 @@ export const projects = [
         solution: "AcadPack Uni Transcript centralizes and preserves all student records securely."
       }
     ],
-    client: "University Partners",
+    client: "Hibmat University of Buea",
     value: "$6,000",
     demoLink: "unitr.acadpack.fastwebcm.org",
     accounts: [
@@ -195,7 +195,7 @@ export const projects = [
         solution: "AcadPack Uni Suite supports custom grading systems, credit loads, and program structures."
       }
     ],
-    client: "Higher Institutions",
+    client: "Biaka University Institute of Buea",
     value: "$9,000",
     demoLink: "unisuite.acadpack.fastwebcm.org",
     accounts: [
@@ -227,7 +227,7 @@ export const projects = [
         solution: "Automated screening and applicant scoring speeds up decision-making."
       }
     ],
-    client: "Multiple Institutions",
+    client: "Hibmat University of Buea",
     value: "$4,000",
     demoLink: "enroll.acadpack.fastwebcm.org",
     accounts: [
