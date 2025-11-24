@@ -78,156 +78,165 @@ export const services = [
 
 export const projects = [
   {
-    title: "Acadpack Pro",
+    title: "AcadPack SE",
     category: "Web Application / School ERP",
     description:
-      "Acadpack Pro is an integrated School Management System designed to streamline both academic and financial operations. It enables schools to manage student records, fee transactions, reporting, and administrative workflows from a unified and intuitive interface.",
+      "AcadPack SE is a Secondary School Management System focusing on core academic operations. It provides tools for managing student records, assessments, attendance, and report cards through an automated and friendly interface.",
+    icon: GraduationCap,
+    image: project1,
+    about: `AcadPack SE is built specifically for secondary schools that need a streamlined and reliable academic management tool. It handles the entire academic workflow—student registration, attendance tracking, assessment input, continuous assessment computation, and automatic report generation. 
+    It reduces administrative workload for teachers and guarantees accurate, timely student performance reports.`,
+    challengeSolution: [
+      {
+        title: "Efficient Academic Workflow",
+        challenge: "Schools often struggle with manual student data management, leading to errors in reporting.",
+        solution: "AcadPack SE automates key academic processes, ensuring accuracy, transparency, and real-time access to student performance."
+      },
+      {
+        title: "Accurate Report Card Generation",
+        challenge: "Manual grading and report card preparation is time-consuming and prone to mistakes.",
+        solution: "The system computes grades instantly and produces standardized digital report cards."
+      }
+    ],
+    client: "Pilot Schools",
+    value: "$3,000",
+    demoLink: "se.acadpack.fastwebcm.org",
+    accounts: [
+      { role: "admin", password: "123456" },
+      { role: "teacher", password: "123456" }
+    ],
+    slug: "acadpack-se"
+  },
+
+  {
+    title: "AcadPack SE+",
+    category: "Web Application / School ERP",
+    description:
+      "AcadPack SE+ combines academic management with a complete financial module for secondary schools. It centralizes student data, fee transactions, receipts, and financial reporting.",
     icon: GraduationCap,
     image: acadpackpro,
-    about: `Acadpack Pro is a digital transformation platform built for modern educational institutions. The system automates the entire student lifecycle—from admission, enrollment, and attendance tracking, to continuous assessment and result generation.
-    It includes a powerful finance module that manages payments, fee structures, outstanding balances, receipts, and transaction reconciliation. The interface is clean, fast, and optimized for administrators, teachers, accountants, and parents.
-    Acadpack Pro was built to solve common challenges faced by schools such as scattered student data, difficulty tracking fee payments, manual report generation, and limited transparency in academic performance.`,
+    about: `Acadpack SE+ is a digital transformation platform built for modern secondary schools. The system automates the entire student 
+    lifecycle—from admission, enrollment, and attendance tracking, to continuous assessment and result generation. It includes a powerful finance 
+    module that manages payments, fee structures, outstanding balances, receipts, and transaction reconciliation. The interface is clean, fast, and 
+    optimized for administrators, teachers, accountants, and parents. Acadpack SE+ was built to solve common challenges faced by schools such as scattered student data, difficulty tracking fee payments, 
+    manual report generation, and limited transparency in academic performance.`,
     challengeSolution: [
       {
-        title: "Integrated Academic & Financial Management",
-        challenge: "Fragmented academic and financial processes made it difficult for schools to maintain accurate and synchronized data.",
-        solution: "Acadpack Pro centralizes academic, administrative, and financial operations into a unified platform, ensuring real-time consistency and reducing errors."
+        title: "Unified Academic & Financial Data",
+        challenge: "Using separate systems for academics and finance caused inconsistencies and manual reconciliation.",
+        solution: "AcadPack SE+ unifies both operations into one cohesive platform."
       },
       {
-        title: "Automated Fee Management",
-        challenge: "Manual financial tracking led to lost receipts, incorrect balances, and inconsistent reporting.",
-        solution: "The Finance Module provides digital receipts, automated balance computation, structured fee templates, and full transaction audit logs."
-      },
-      {
-        title: "Streamlined Report Generation",
-        challenge: "Teachers spent hours calculating student results and preparing report cards manually.",
-        solution: "The Academic Module automates score compilation, grading, and report card generation, reducing workload and improving accuracy."
+        title: "Automated Fee Tracking",
+        challenge: "Manual fee collection creates errors, missing receipts, and untracked payments.",
+        solution: "Digital fees, receipts, outstanding alerts, and complete financial reporting eliminate guesswork."
       }
-    ],    
-    client: "SSEC Bamenda",
-    value: "$5,000",
-    demoLink: "acadpackpro.fastwebcm.org",
-    accounts: [
-      {role: "admin",password:"123456"},
-      {role: "fin", password: "123456"},
     ],
-    slug: "acadpack-pro"
+    client: "GTHS Fundong",
+    value: "$5,500",
+    demoLink: "seplus.acadpack.fastwebcm.org",
+    accounts: [
+      { role: "admin", password: "123456" },
+      { role: "fin", password: "123456" }
+    ],
+    slug: "acadpack-se-plus"
   },
+
   {
-    title: "QuickCart – E-commerce Platform",
-    category: "E-commerce",
+    title: "AcadPack Uni Transcript",
+    category: "Web Application / University System",
     description:
-      "An all-in-one shopping solution with secure payments, advanced search filters, and real-time delivery tracking powered by Next.js and Stripe.",
-    icon: ShoppingBag,
+      "AcadPack Uni Transcript is a university-grade transcript processing system that automates course management, grade computation, and certified transcript generation.",
+    icon: GraduationCap,
     image: project2,
-    about: `There are many variations of passages of psum available, but the majority have suffered alteration in 
-    some form, by injected humour, or randomised words which don't look even slightly believable. If you are going
-    to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of 
-    text. Fustered impressive manifest crud opened inside owing punitively around forewent and after wasteful telling
-    sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some tyran nically talkative jepers crud decore recteque philosophia eumuas.`,
+    about: `This edition focuses solely on managing student academic history and generating official transcripts. 
+    It automates GPA computation, transcript formatting, classification rules, and historical student record archiving. 
+    Designed for universities that want to digitize transcript workflows without adopting a full ERP.`,
     challengeSolution: [
       {
-        title: "Integrated Academic & Financial Management",
-        challenge: "Fragmented academic and financial processes made it difficult for schools to maintain accurate and synchronized data.",
-        solution: "Acadpack Pro centralizes academic, administrative, and financial operations into a unified platform, ensuring real-time consistency and reducing errors."
+        title: "Accurate GPA & Transcript Processing",
+        challenge: "Manual transcription leads to errors and delays during student graduation.",
+        solution: "Automated grade computation and transcript generation ensures accuracy and eliminates delays."
       },
       {
-        title: "Automated Fee Management",
-        challenge: "Manual financial tracking led to lost receipts, incorrect balances, and inconsistent reporting.",
-        solution: "The Finance Module provides digital receipts, automated balance computation, structured fee templates, and full transaction audit logs."
-      },
-      {
-        title: "Streamlined Report Generation",
-        challenge: "Teachers spent hours calculating student results and preparing report cards manually.",
-        solution: "The Academic Module automates score compilation, grading, and report card generation, reducing workload and improving accuracy."
+        title: "Historical Record Management",
+        challenge: "Many institutions struggle to retrieve legacy data efficiently.",
+        solution: "AcadPack Uni Transcript centralizes and preserves all student records securely."
       }
-    ], 
-    client: "HG Insurance",
-    value: "$5,000",
-    demoLink: "app.fastwebcm.org",
-    accounts: [
-      {role: "admin",password:"123456"},
-      {role: "fin", password: "123456"},
     ],
-    slug: "quick-cart"
+    client: "University Partners",
+    value: "$6,000",
+    demoLink: "unitr.acadpack.fastwebcm.org",
+    accounts: [
+      { role: "admin", password: "123456" }
+    ],
+    slug: "acadpack-uni-transcript"
   },
+
   {
-    title: "NovaBank Mobile",
-    category: "Mobile App",
+    title: "AcadPack Uni Suite",
+    category: "Web Application / University ERP",
     description:
-      "A cross-platform mobile banking app offering seamless transfers, biometric login, and instant loan services built with React Native and Firebase.",
-    icon: Smartphone,
+      "AcadPack Uni Suite is a full university management package integrating transcript processing with academic operations such as course registration, grading, and program management.",
+    icon: GraduationCap,
     image: project3,
-    about: `There are many variations of passages of psum available, but the majority have suffered alteration in 
-    some form, by injected humour, or randomised words which don't look even slightly believable. If you are going
-    to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of 
-    text. Fustered impressive manifest crud opened inside owing punitively around forewent and after wasteful telling
-    sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some tyran nically talkative jepers crud decore recteque philosophia eumuas.`,
+    about: `AcadPack Uni Suite offers universities a complete academic lifecycle management system. 
+    It includes transcript management, course management, continuous assessment tools, registration workflows, grading automation, and academic reporting. 
+    Built for higher institutions that require a full academic and transcript system.`,
     challengeSolution: [
       {
-        title: "Integrated Academic & Financial Management",
-        challenge: "Fragmented academic and financial processes made it difficult for schools to maintain accurate and synchronized data.",
-        solution: "Acadpack Pro centralizes academic, administrative, and financial operations into a unified platform, ensuring real-time consistency and reducing errors."
+        title: "Complete Academic Lifecycle Automation",
+        challenge: "Universities often use many disconnected systems for grading, registrations, and transcripts.",
+        solution: "Uni Suite unifies all processes into one platform, ensuring accuracy and efficiency."
       },
       {
-        title: "Automated Fee Management",
-        challenge: "Manual financial tracking led to lost receipts, incorrect balances, and inconsistent reporting.",
-        solution: "The Finance Module provides digital receipts, automated balance computation, structured fee templates, and full transaction audit logs."
-      },
-      {
-        title: "Streamlined Report Generation",
-        challenge: "Teachers spent hours calculating student results and preparing report cards manually.",
-        solution: "The Academic Module automates score compilation, grading, and report card generation, reducing workload and improving accuracy."
+        title: "Flexible Course & Program Structure",
+        challenge: "Complex university grading and program rules are hard to manage manually.",
+        solution: "AcadPack Uni Suite supports custom grading systems, credit loads, and program structures."
       }
-    ], 
-    client: "HG Insurance",
-    value: "$5,000",
-    demoLink: "app.fastwebcm.org",
-    accounts: [
-      {role: "admin",password:"123456"},
-      {role: "fin", password: "123456"},
     ],
-    slug: "nova-bank"
+    client: "Higher Institutions",
+    value: "$9,000",
+    demoLink: "unisuite.acadpack.fastwebcm.org",
+    accounts: [
+      { role: "admin", password: "123456" },
+      { role: "lecturer", password: "123456" }
+    ],
+    slug: "acadpack-uni-suite"
   },
+
   {
-    title: "CloudNet Suite",
-    category: "Cloud Infrastructure",
+    title: "AcadPack Enroll",
+    category: "Web Application / Registration Portal",
     description:
-      "A cloud-based system for deploying and monitoring enterprise workloads with auto-scaling and container orchestration using AWS and Kubernetes.",
-    icon: Cloud,
+      "AcadPack Enroll is an online registration system allowing institutions to digitize admission and enrollment processes.",
+    icon: GraduationCap,
     image: project1,
-    about: `There are many variations of passages of psum available, but the majority have suffered alteration in 
-    some form, by injected humour, or randomised words which don't look even slightly believable. If you are going
-    to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of 
-    text. Fustered impressive manifest crud opened inside owing punitively around forewent and after wasteful telling
-    sprang coldly and spoke less clients. Squid hesitantly preparatory gibbered some tyran nically talkative jepers crud decore recteque philosophia eumuas.`,
+    about: `AcadPack Enroll enables schools and universities to manage admissions effortlessly. 
+    Students can apply online, upload documents, track progress, and receive notifications. 
+    Administrators benefit from automated applicant sorting, verification workflows, and admission decision tools.`,
     challengeSolution: [
       {
-        title: "Integrated Academic & Financial Management",
-        challenge: "Fragmented academic and financial processes made it difficult for schools to maintain accurate and synchronized data.",
-        solution: "Acadpack Pro centralizes academic, administrative, and financial operations into a unified platform, ensuring real-time consistency and reducing errors."
+        title: "Paperless Admission Process",
+        challenge: "Institutions face long queues and manual paperwork during registration.",
+        solution: "AcadPack Enroll digitizes the entire workflow from application to approval."
       },
       {
-        title: "Automated Fee Management",
-        challenge: "Manual financial tracking led to lost receipts, incorrect balances, and inconsistent reporting.",
-        solution: "The Finance Module provides digital receipts, automated balance computation, structured fee templates, and full transaction audit logs."
-      },
-      {
-        title: "Streamlined Report Generation",
-        challenge: "Teachers spent hours calculating student results and preparing report cards manually.",
-        solution: "The Academic Module automates score compilation, grading, and report card generation, reducing workload and improving accuracy."
+        title: "Faster Applicant Screening",
+        challenge: "Manually filtering applicants consumes time and introduces errors.",
+        solution: "Automated screening and applicant scoring speeds up decision-making."
       }
-    ], 
-    client: "HG Insurance",
-    value: "$5,000",
-    demoLink: "app.fastwebcm.org",
-    accounts: [
-      {role: "admin",password:"123456"},
-      {role: "fin", password: "123456"},
     ],
-    slug: "cloudnet-suite"
-  },
+    client: "Multiple Institutions",
+    value: "$4,000",
+    demoLink: "enroll.acadpack.fastwebcm.org",
+    accounts: [
+      { role: "admin", password: "123456" }
+    ],
+    slug: "acadpack-enroll"
+  }
 ];
+
 
 export const countdownData = [
   {
