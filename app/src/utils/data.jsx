@@ -1,13 +1,15 @@
 import { Facebook, Twitter, Linkedin, Github, Mail, Phone,GlobeLock,
     Code2,Smartphone, Server,Cpu,Code, Cloud, ShoppingBag,Smile,Briefcase,Clock,ThumbsUp,  
-    Navigation, GraduationCap} from "lucide-react";
+    Navigation, GraduationCap,ShoppingCart} from "lucide-react";
 import project1 from "../assets/backgrounds/project1.jpg";
 import project2 from "../assets/backgrounds/project2.jpg";
 import project3 from "../assets/backgrounds/project3.jpg";
 import ichami from "../assets/images/ichami.jpeg";
 import Drpeter from "../assets/images/Drpeter.png";
+import defaultuser from "../assets/images/defaultuser.png";
 import service1 from "../assets/backgrounds/service1.jpg"
 import acadpackpro from "../assets/banners/acadpackpro.jpg";
+import storeflow from "../assets/banners/storeflow.png";
 
 export const navLinks = [
     { name: "Home", href: "/" },
@@ -234,7 +236,55 @@ export const projects = [
       { role: "admin", password: "123456" }
     ],
     slug: "acadpack-enroll"
-  }
+  },
+  {
+  title: "StoreFlow IMS",
+  category: "Web Application / Inventory & Sales Management",
+  description:
+    "StoreFlow IMS is a multi-branch supermarket management system designed to handle inventory, sales, and customer transactions across multiple sales points.",
+  icon: ShoppingCart,
+  image: storeflow,
+  about: `StoreFlow IMS is a modern inventory and sales management system built for supermarkets and retail businesses operating across multiple branches.
+  
+  The system allows administrators to manage products, categories, brands, and stock levels from a centralized dashboard. Warehouses and sales points are fully supported, including controlled stock transfers between locations.
+  
+  StoreFlow IMS also handles point-of-sale operations, enabling sales to both anonymous walk-in customers and registered clients. It supports credit and debit sales, making it ideal for businesses that offer customer credit accounts.
+  
+  With clear role-based access control, StoreFlow IMS ensures that each staff member—whether warehouse manager or salesperson—has access only to the tools they need.`,
+  challengeSolution: [
+    {
+      title: "Multi-Branch Inventory Control",
+      challenge:
+        "Managing stock across warehouses and multiple sales points often leads to discrepancies and stock losses.",
+      solution:
+        "StoreFlow IMS provides real-time inventory tracking with controlled stock transfers between warehouses and sales points."
+    },
+    {
+      title: "Flexible Sales Management",
+      challenge:
+        "Traditional POS systems struggle to handle both anonymous sales and customer credit tracking.",
+      solution:
+        "The system supports walk-in customers, registered clients, and credit/debit sales with complete transaction history."
+    },
+    {
+      title: "Role-Based Operations",
+      challenge:
+        "Giving all staff the same system access increases the risk of errors and misuse.",
+      solution:
+        "StoreFlow IMS implements strict role-based access for Super Admins, Warehouse Managers, and Salespersons."
+    }
+  ],
+  client: "Private Retail Client",
+  value: "$2,500",
+  demoLink: "storeflow.fastwebcm.org",
+  accounts: [
+    { role: "admin", password: "123456" },
+    { role: "warehouse", password: "123456" },
+    { role: "salesgirl", password: "123456" }
+  ],
+  slug: "storeflow-ims"
+}
+
 ];
 
 
@@ -302,27 +352,26 @@ export const team = [
 export const testimonials = [
   {
     id: 1,
-    name: 'Dr. Peter Leke',
-    role: 'CTO, NexaTech Solutions',
-    image: Drpeter,
-    feedback:
-      'Collaborating with this team has been a game changer for our digital transformation goals. Their technical expertise and commitment to delivering scalable solutions are unmatched.',
+    name: 'Mr. Fru',
+    role: 'Proprietor, SSEC Bamenda',
+    image: defaultuser,
+    feedback:'Before AcadPack SE+, managing academics and school finances was stressful and time-consuming. Everything was done separately and errors were common. Since adopting the system, student records, assessments, fees, and reports are all handled in one place. It has simplified our operations so much that I personally came to Buea to appreciate the team for the excellent work they delivered.'
   },
   {
     id: 2,
-    name: 'Ubangatuh Brandong Ichami',
-    role: 'Lead Developer, FastWebCM',
-    image: ichami,
+    name: 'Dr. Peter Leke',
+    role: 'School Administrator',
+    image: Drpeter,
     feedback:
-      'A highly skilled and reliable IT partner. Their ability to turn complex requirements into seamless, high-performing applications truly sets them apart.',
+      'The AcadPack platform reduced paperwork and manual calculations drastically. Teachers now focus more on teaching, while reports and results are generated automatically. The system is reliable, easy to use, and well adapted to our school environment.',
   },
   {
     id: 3,
-    name: 'Sarah Johnson',
-    role: 'Project Manager, CloudEdge Systems',
-    image: ichami,
+    name: 'Mr. Tabe',
+    role: 'Sales Manager, Retail Co.',
+    image: defaultuser,
     feedback:
-      'Exceptional experience from start to finish. The team was innovative, proactive, and always went the extra mile to ensure our project exceeded expectations.',
+      'With StoreFlow IMS, we always know what is in stock at each sales point. Sales reports are clear, and tracking customer credit is no longer a problem. It has improved accountability among staff and reduced losses.',
   },
 ];
 
