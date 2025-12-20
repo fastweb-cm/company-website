@@ -9,7 +9,7 @@ class UserController extends Controller {
     //test the db connection
     public function index(): void {
         $db = Database::connect();
-        echo 'Database connected successfully';
+        echo json_encode(['message' => 'Database connected successfully']);
     }
     public function register(): void {
         $data = $this->getJsonInput();
