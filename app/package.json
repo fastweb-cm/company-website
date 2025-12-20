@@ -18,6 +18,7 @@
     "@tailwindcss/vite": "^4.1.16",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.9.1",
+    "axios": "^1.13.2",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.548.0",
