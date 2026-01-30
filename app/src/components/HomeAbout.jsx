@@ -53,7 +53,7 @@ export default function HomeAbout({show = true}) {
 
         {/* ===== TEXT SIDE ===== */}
         <div className="flex flex-col gap-5">
-        <SectionHeaderText title="ABOUT OUR COMPANY" />
+        <SectionHeaderText title="ABOUT US" />
 
           <h1 className="font-extrabold text-4xl">Empowering Digital Growth Worldwide</h1>
           <p className="text-gray-700 leading-relaxed">
