@@ -335,17 +335,6 @@ export const team = [
       { icon: <Twitter size={20} />, href: "https://twitter.com" },
       { icon: <Linkedin size={20} />, href: "https://linkedin.com" },
     ]
-  },
-
-  {
-    name: "Dr. Peter Leke",
-    role: "CEO",
-    photo: Drpeter,
-    socialLinks: [
-      { icon: <Facebook size={20} />, href: "https://facebook.com" },
-      { icon: <Twitter size={20} />, href: "https://twitter.com" },
-      { icon: <Linkedin size={20} />, href: "https://linkedin.com" },
-    ]
   }
 ]
 
