@@ -13,9 +13,9 @@ import storeflow from "../assets/banners/storeflow.png";
 
 export const navLinks = [
     { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Projects", href: "/projects" },
-    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
 ]
 
