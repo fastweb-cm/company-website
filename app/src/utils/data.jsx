@@ -17,6 +17,7 @@ export const navLinks = [
     { name: "Services", href: "/services" },
     { name: "Projects", href: "/projects" },
     { name: "Contact", href: "/contact" },
+    { name: "Blog", href: "/blog" },
 ]
 
 export const socialLinks = [
@@ -387,5 +388,68 @@ export const faqs = [
   },
 ];
 
+export const testblogposts = [
+  {
+    id: 1,
+    category: 'CompSci',
+    title: "Test blog post title for Testing",
+    content: `lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum numquam dolorum aut corrupti enim, voluptatem odio
+              aperiam maiores commodi architecto sed eaque, iste facere aliquam nesciunt? Perspiciatis, vel quos sit assumenda veritatis
+              molestiae soluta commodi modi magni impedit obcaecati neque delectus sed. Doloremque odio quo incidunt voluptates quis dicta ab?`,
+    img_url: "https://picsum.photos/seed/picsum/200/300",
+    date_posted: new Date().toDateString(),
+  },
+  {
+    id: 2,
+    category: "Cyber Security",
+    title: "Test blog post title for Testing",
+    content: `lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum numquam dolorum aut corrupti enim, voluptatem odio
+              aperiam maiores commodi architecto sed eaque, iste facere aliquam nesciunt? Perspiciatis, vel quos sit assumenda veritatis
+              molestiae soluta commodi modi magni impedit obcaecati neque delectus sed. Doloremque odio quo incidunt voluptates quis dicta ab?`,
+    img_url: "https://picsum.photos/seed/picsum/200/300",
+    date_posted: new Date().toDateString(),
+  },
 
-  
+  {
+    id: 3,
+    category: 'Tech',
+    title: "Test blog post title for Testing",
+    content: `lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum numquam dolorum aut corrupti enim, voluptatem odio
+              aperiam maiores commodi architecto sed eaque, iste facere aliquam nesciunt? Perspiciatis, vel quos sit assumenda veritatis
+              molestiae soluta commodi modi magni impedit obcaecati neque delectus sed. Doloremque odio quo incidunt voluptates quis dicta ab?`,
+    img_url: "https://picsum.photos/seed/picsum/200/300",
+    date_posted: new Date().toDateString(),
+  },
+  {
+    id: 2,
+    category: "Cyber Security",
+    title: "Test blog post title for Testing",
+    content: `lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum numquam dolorum aut corrupti enim, voluptatem odio
+              aperiam maiores commodi architecto sed eaque, iste facere aliquam nesciunt? Perspiciatis, vel quos sit assumenda veritatis
+              molestiae soluta commodi modi magni impedit obcaecati neque delectus sed. Doloremque odio quo incidunt voluptates quis dicta ab?`,
+    img_url: "https://picsum.photos/seed/picsum/200/300",
+    date_posted: new Date().toDateString(),
+    featured: true,
+  },
+
+  {
+    id: 3,
+    category: 'Tech',
+    title: "Test blog post title for Testing",
+    content: `lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum numquam dolorum aut corrupti enim, voluptatem odio
+              aperiam maiores commodi architecto sed eaque, iste facere aliquam nesciunt? Perspiciatis, vel quos sit assumenda veritatis
+              molestiae soluta commodi modi magni impedit obcaecati neque delectus sed. Doloremque odio quo incidunt voluptates quis dicta ab?`,
+    img_url: "https://picsum.photos/seed/picsum/200/300",
+    date_posted: new Date().toDateString(),
+  },
+  {
+    id: 3,
+    category: 'Tech',
+    title: "Test blog post title for Testing",
+    content: `lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum numquam dolorum aut corrupti enim, voluptatem odio
+              aperiam maiores commodi architecto sed eaque, iste facere aliquam nesciunt? Perspiciatis, vel quos sit assumenda veritatis
+              molestiae soluta commodi modi magni impedit obcaecati neque delectus sed. Doloremque odio quo incidunt voluptates quis dicta ab?`,
+    img_url: "https://picsum.photos/seed/picsum/200/300",
+    date_posted: new Date().toDateString(),
+  },
+]
