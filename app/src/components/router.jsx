@@ -8,6 +8,8 @@ import ServiceDetails from "../pages/ServiceDetails";
 import About from "../pages/About";
 import Project from "../pages/Project";
 import ProjectDetails from "../pages/ProjectDetails";
+import Blogpost from "../pages/Blogpost";
+import BlogDetails from "../pages/BlogDetails";
 
 
 const router = createBrowserRouter([
@@ -22,6 +24,8 @@ const router = createBrowserRouter([
       { path: "/projects", element: <Project /> },
       { path: "/services/:slug", element: <ServiceDetails /> },
       { path: "/projects/:slug", element: <ProjectDetails /> },
+      { path: "/blog", element: <Blogpost />},
+      { path: "/blog/:id", element: <BlogDetails />},
       { path: "*", element: <NotFound /> },
     ],
   },
