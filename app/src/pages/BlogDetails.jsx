@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { testblogposts } from '../utils/data';
+import { ArrowLeft } from 'lucide-react';
 
 function BlogDetails() {
   const { id } = useParams();
@@ -49,9 +50,9 @@ function BlogDetails() {
             </div>
             <button
               onClick={() => window.history.back()}
-              className="bg-red-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-red-700 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              className="bg-red-600 flex items-center gap-3 text-white px-8 py-3 rounded-xl font-bold hover:bg-red-700 hover:shadow-lg hover:-translate-y-0.5 transition-all"
             >
-              ← Back to Feed
+              <ArrowLeft/> Back to Feed
             </button>
           </div>
         </div>
