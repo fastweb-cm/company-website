@@ -8,9 +8,15 @@ import ServiceDetails from "../pages/ServiceDetails";
 import About from "../pages/About";
 import Project from "../pages/Project";
 import ProjectDetails from "../pages/ProjectDetails";
+<<<<<<< Blog
 import Blogpost from "../pages/Blogpost";
 import BlogDetails from "../pages/BlogDetails";
 
+=======
+import AuthLayout from "../layouts/AuthLayout";
+import ForgotPassword from "../pages/ForgotPassword";
+import Login from "../pages/Login";
+>>>>>>> main
 
 const router = createBrowserRouter([
   {
@@ -28,7 +34,15 @@ const router = createBrowserRouter([
       { path: "/blog/:id", element: <BlogDetails />},
       { path: "*", element: <NotFound /> },
     ],
-  },
+  },{
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+     {index: true, element: <Login />},
+      {path: "forgot-password",element: <ForgotPassword />},
+      {path: "login", element: <Login />},
+    ],
+  }
 ]);
 
 export default router;
