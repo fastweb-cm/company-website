@@ -8,7 +8,9 @@ import ServiceDetails from "../pages/ServiceDetails";
 import About from "../pages/About";
 import Project from "../pages/Project";
 import ProjectDetails from "../pages/ProjectDetails";
-
+import AuthLayout from "../layouts/AuthLayout";
+import ForgotPassword from "../pages/ForgotPassword";
+import Login from "../pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +26,15 @@ const router = createBrowserRouter([
       { path: "/projects/:slug", element: <ProjectDetails /> },
       { path: "*", element: <NotFound /> },
     ],
-  },
+  },{
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+     {index: true, element: <Login />},
+      {path: "forgot-password",element: <ForgotPassword />},
+      {path: "login", element: <Login />},
+    ],
+  }
 ]);
 
 export default router;
