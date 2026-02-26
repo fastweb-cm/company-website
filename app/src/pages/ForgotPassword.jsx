@@ -10,7 +10,7 @@ const ForgotPassword = () => {
       <p className='text-center text-accent/50 mb-6'>Enter your email and we'll send you a reset link.</p>
    <input type="email"
    placeholder='Enter your email'
-   className='w-full border p-2 mb-4 text-accent/50 border-gray-300 rounded
+   className='w-full border p-2 mb-4 text-text border-gray-300 rounded
    focus:outline-none focus:ring-2 focus:ring-red-500' />
 
    <Button variant='primary' hoverBg='black' className='w-full '>Send Reset Link</Button>
