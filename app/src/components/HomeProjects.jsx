@@ -82,12 +82,12 @@ export default function HomeProjects({show = true}) {
               </div>
 
               {/* Text content */}
-              <div className="relative z-10 flex flex-col justify-end h-full p-6 gap-4">
+              <Link to={`/projects/${project.slug}`} className="relative z-10 flex flex-col justify-end h-full p-6 gap-4">
                 <h4 className="text-secondary text-md">{project.title}</h4>
                 <p className="text-primary group-hover:text-white/80">
                   {project.category}
                 </p>
-              </div>
+              </Link>
             </Motion.div>
           ))}
         </div>

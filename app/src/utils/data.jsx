@@ -17,6 +17,7 @@ export const navLinks = [
     { name: "Services", href: "/services" },
     { name: "Projects", href: "/projects" },
     { name: "Contact", href: "/contact" },
+    { name: "Blog", href: "/blog" },
 ]
 
 export const socialLinks = [
@@ -387,5 +388,86 @@ export const faqs = [
   },
 ];
 
+export const testblogposts = [
+  {
+    id: 1,
+    category: "Cloud & Infrastructure",
+    title: "Designing Resilient Cloud Architectures for Modern Enterprises",
+    content: `In today’s digital economy, system downtime is not just an inconvenience—it is a direct revenue and reputation risk. Modern enterprises must design cloud architectures that are resilient, observable, and scalable by default.
 
-  
+A resilient architecture begins with redundancy at multiple layers: compute, storage, networking, and data. Leveraging multi–availability zone deployments ensures that failure in one zone does not cascade into total service disruption. Beyond infrastructure redundancy, organizations should adopt stateless application design patterns to allow horizontal scaling under unpredictable load.
+
+Equally important is observability. Centralized logging, metrics aggregation, and distributed tracing enable proactive detection of anomalies before they escalate into incidents. A mature incident response workflow—complete with runbooks and automated remediation—reduces mean time to recovery (MTTR).
+
+From a governance standpoint, infrastructure as code (IaC) enforces consistency across environments. Version-controlled deployment scripts reduce configuration drift and improve auditability. When combined with continuous integration and continuous deployment (CI/CD) pipelines, organizations can achieve safe, incremental releases with minimal operational friction.
+
+Ultimately, resilient cloud design is not about eliminating failure. It is about anticipating failure, containing blast radius, and recovering rapidly with minimal user impact.`,
+    img_url: "https://picsum.photos/seed/cloudinfra/800/500",
+    date_posted: new Date("2026-02-10").toDateString(),
+    featured: true,
+  },
+  {
+    id: 2,
+    category: "Cybersecurity",
+    title: "Zero Trust Security: A Practical Roadmap for Implementation",
+    content: `Traditional perimeter-based security models are increasingly ineffective in distributed and hybrid work environments. Zero Trust shifts the paradigm from “trust but verify” to “never trust, always verify.”
+
+A Zero Trust strategy begins with identity as the new perimeter. Multi-factor authentication (MFA), single sign-on (SSO), and strong identity governance ensure that only authenticated and authorized users gain access to resources. Role-based and attribute-based access control further reduce unnecessary privilege exposure.
+
+Network segmentation is another foundational component. By isolating workloads and enforcing strict east-west traffic policies, organizations minimize lateral movement opportunities in the event of a breach. Continuous monitoring and behavioral analytics help detect suspicious activity in real time.
+
+Data protection must also be prioritized. Encryption at rest and in transit, coupled with data classification policies, ensures that sensitive information remains secure regardless of its location. Security awareness training reinforces technical controls by addressing human risk factors.
+
+Implementing Zero Trust is not a single project—it is a phased transformation requiring executive sponsorship, cross-functional collaboration, and measurable security metrics.`,
+    img_url: "https://picsum.photos/seed/zerotrust/800/500",
+    date_posted: new Date("2026-02-12").toDateString(),
+  },
+  {
+    id: 3,
+    category: "Digital Transformation",
+    title: "From Legacy Systems to Scalable Platforms: Navigating Digital Transformation",
+    content: `Many organizations remain constrained by legacy systems that were never designed for today’s integration and scalability demands. Digital transformation requires more than adopting new tools—it demands architectural modernization and cultural alignment.
+
+The first step is conducting a comprehensive systems audit. Identify technical debt, integration bottlenecks, and performance constraints. With this visibility, organizations can define a phased modernization roadmap that balances innovation with operational continuity.
+
+Application refactoring or re-platforming often yields measurable improvements in performance and maintainability. Microservices and API-driven architectures promote modularity, allowing teams to innovate independently without destabilizing core systems.
+
+Equally important is change management. Technology initiatives fail when organizational readiness is overlooked. Clear communication, stakeholder buy-in, and incremental rollout strategies significantly increase adoption success rates.
+
+Digital transformation is a journey of continuous improvement. By aligning technology strategy with business objectives, organizations can build adaptive platforms capable of evolving alongside market demands.`,
+    img_url: "https://picsum.photos/seed/digitaltransform/800/500",
+    date_posted: new Date("2026-02-15").toDateString(),
+  },
+  {
+    id: 4,
+    category: "Data & Analytics",
+    title: "Building a Data-Driven Organization: Strategy, Governance, and Execution",
+    content: `Data is one of the most valuable strategic assets an organization possesses. However, value is only realized when data is reliable, accessible, and actionable.
+
+A data-driven strategy begins with governance. Clear ownership, standardized data definitions, and quality controls ensure consistency across departments. Without governance, analytics outputs risk being fragmented or contradictory.
+
+Modern data platforms consolidate structured and unstructured data into centralized repositories, enabling advanced analytics and machine learning applications. Real-time dashboards provide operational insights, while predictive models inform long-term strategy.
+
+Security and compliance considerations must be integrated from the outset. Data privacy regulations require robust access controls, audit trails, and retention policies. Embedding compliance into system design prevents costly retroactive adjustments.
+
+Ultimately, becoming data-driven is not about collecting more data. It is about transforming raw information into strategic intelligence that informs measurable business outcomes.`,
+    img_url: "https://picsum.photos/seed/dataanalytics/800/500",
+    date_posted: new Date("2026-02-18").toDateString(),
+  },
+  {
+    id: 5,
+    category: "DevOps & Automation",
+    title: "Accelerating Delivery with DevOps and Intelligent Automation",
+    content: `Speed and reliability are no longer mutually exclusive in software delivery. DevOps practices bridge development and operations, enabling faster release cycles without compromising system stability.
+
+Continuous integration pipelines automate code validation through unit tests, static analysis, and security scanning. Continuous delivery workflows ensure that validated builds can be deployed consistently across staging and production environments.
+
+Infrastructure automation eliminates manual configuration errors. Using declarative templates, teams can replicate entire environments with minimal effort. Automated rollback mechanisms further safeguard against failed deployments.
+
+Intelligent automation extends beyond deployment. Monitoring systems integrated with alerting and remediation scripts can automatically scale resources or restart failing services. This reduces operational overhead and allows teams to focus on strategic initiatives.
+
+DevOps is fundamentally a cultural shift—one that emphasizes collaboration, shared accountability, and iterative improvement. Organizations that successfully adopt DevOps practices gain both competitive agility and operational resilience.`,
+    img_url: "https://picsum.photos/seed/devopsautomation/800/500",
+    date_posted: new Date("2026-02-20").toDateString(),
+  }
+];
