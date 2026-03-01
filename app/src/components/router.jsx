@@ -18,6 +18,18 @@ import ForgotPassword from "../pages/ForgotPassword";
 import Login from "../pages/Login";
 
 
+import AdminLayout from "../layouts/AdminLayout";
+import Dashboard from "../pages/Dashboard";
+import Users from "../pages/Users";
+import Blog from "../pages/Blog";
+import FAQ from "../pages/FAQ";
+import ContactUs from "../pages/ContactUs";
+import Projects from "../pages/Projects";
+import Team from "../pages/Team";
+import Testimonials from "../pages/Testimonials";
+
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +53,19 @@ const router = createBrowserRouter([
      {index: true, element: <Login />},
       {path: "forgot-password",element: <ForgotPassword />},
       {path: "login", element: <Login />},
+    ],
+  },{
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+     {index: true, element: <Dashboard />},
+      {path: "users", element: <Users />},
+      {path: "blog", element: <Blog />},
+      {path: "faqs", element: <FAQ />},
+      {path: "contact", element: <ContactUs />},
+      {path: "projects", element: <Projects />},
+      {path: "team", element: <Team />},
+      {path: "testimonials", element: <Testimonials />},
     ],
   }
 ]);
