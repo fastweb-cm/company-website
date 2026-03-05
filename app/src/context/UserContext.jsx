@@ -5,12 +5,11 @@ const UserContext = createContext();
 export function
 UserProvider({children}) {
     const [user, setUser] = useState(null);
-
-
-const isAuthenticated = !!user;
-
+    const loading = false
 const login = (userData) => {
+    loading = true;
     setUser(userData);
+    loading = false;
     //waiting for backend's implementaion
 };
 
@@ -19,7 +18,7 @@ const logout = () =>{
 };
 
 return (
-    <UserContext.Provider value={{user, login, logout, isAuthenticated}}>{children} </UserContext.Provider>
+    <UserContext.Provider value={{user, login, logout, loading}}>{children} </UserContext.Provider>
 );
 };
 export function useUser() {
