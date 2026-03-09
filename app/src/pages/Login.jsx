@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import RememberMe from '../components/RememberMe';
 
 const Login = () => {
+  const [stayLoggedIn, setStayLoggedIn] = React.useState(false);
   return (
     <div>
       <h2 className='text-2xl font-bold
@@ -14,7 +16,10 @@ const Login = () => {
     <input type="password" placeholder='Password' className='w-full border p-3 text-gray-950 border-gray-300 rounded mb-2
     focus:outline-none focus:ring-2 focus:ring-red-500' />
 
-    <div className='flex justify-end mb-4'>
+    <div className='flex items-center justify-between mb-4'>
+
+      <RememberMe isChecked={stayLoggedIn} setIsChecked={setStayLoggedIn} />
+
        < Link to="/auth/forgot-password"
        className=' text-sm text-red-600 hover:underline'>Forgot Password?</Link>
     </div>
