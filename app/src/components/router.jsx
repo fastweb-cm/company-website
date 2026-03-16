@@ -29,6 +29,8 @@ import Team from "../pages/Team";
 import Testimonials from "../pages/Testimonials";
 
 
+import AddProject from "../pages/AddProject";
+
 
 const router = createBrowserRouter([
   {
@@ -66,6 +68,7 @@ const router = createBrowserRouter([
       {path: "projects", element: <Projects />},
       {path: "team", element: <Team />},
       {path: "testimonials", element: <Testimonials />},
+      {path: "add-project", element: <AddProject />},
     ],
   }
 ]);
