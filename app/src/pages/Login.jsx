@@ -17,9 +17,13 @@ const Login = () => {
     focus:outline-none focus:ring-2 focus:ring-red-500' />
 
     <div className='flex items-center justify-between mb-4'>
-
-      <RememberMe isChecked={stayLoggedIn} setIsChecked={setStayLoggedIn} />
-
+      <div className='flex items-center'>
+      <input
+      type="checkbox" 
+      id="rememberme" 
+      className='h-4 w-4 accent-red-600 border-gray-300 rounded cursor-pointer' />
+      <label htmlFor="rememberme" className='text-sm text-gray-950'>Remember me</label>
+      </div>
        < Link to="/auth/forgot-password"
        className=' text-sm text-red-600 hover:underline'>Forgot Password?</Link>
     </div>
