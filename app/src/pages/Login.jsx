@@ -1,19 +1,34 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import { FaEye, FaEyeSlash } from "react-icons/fa"
-import Button from '../components/Button';
-import usePasswordToggle from '../utils/usePasswordToggle';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import RememberMe from '../components/RememberMe';
 
 const Login = () => {
-
-  const { visible, toggle, type } = usePasswordToggle();
-
+  const [stayLoggedIn, setStayLoggedIn] = React.useState(false);
   return (
     <div>
       <img src="/logo.png" alt="" className='w-xl rounded mx-auto' />
 
       <h2 className='text-2xl font-bold
-      text-center mb-6 text-text'>Welcome Back!</h2>
+      text-center mb-6 text-gray-800'>Welcome Back!</h2>
+
+        <input type="email" placeholder='Email' className='w-full border p-3 border-gray-300 text-gray-950 rounded mb-4
+        focus:outline-none focus:ring-2 focus:ring-red-500' />
+    
+    
+    <input type="password" placeholder='Password' className='w-full border p-3 text-gray-950 border-gray-300 rounded mb-2
+    focus:outline-none focus:ring-2 focus:ring-red-500' />
+
+    <div className='flex items-center justify-between mb-4'>
+      <div className='flex items-center'>
+      <input
+      type="checkbox" 
+      id="rememberme" 
+      className='h-4 w-4 accent-red-600 border-gray-300 rounded cursor-pointer' />
+      <label htmlFor="rememberme" className='text-sm text-gray-950'>Remember me</label>
+      </div>
+       < Link to="/auth/forgot-password"
+       className=' text-sm text-red-600 hover:underline'>Forgot Password?</Link>
+    </div>
 
       <input type="email" placeholder='Email' className='w-full border p-3 border-muted text-text rounded mb-4
         focus:outline-none focus:ring-2 focus:ring-primary-500' />
