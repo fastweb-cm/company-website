@@ -3,11 +3,15 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { projectSchema } from '../schemas/projectSchema';
 import button from '../components/Button';
+import { useState } from 'react';
+
 
 const AddProject = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, watch, formState: { errors } } = useForm({
     resolver: zodResolver(projectSchema),
   });
+
+  const [showExtraDetails, setShowExtraDetails] = useState(false);
 
   const onSubmit = (data) => {
     console.log("Success! Base Project Data:", data);
@@ -57,6 +61,41 @@ const AddProject = () => {
           <textarea {...register("description")} className="w-full border p-2 rounded h-32 text-black" />
           {errors.description && <p className="text-red-500 text-xs">{errors.description.message}</p>}
         </div>
+
+        <div>
+             <label className="block text-sm font-medium text-gray-500">Project Image URL</label>
+            <input 
+                {...register("image")} 
+                type="text" 
+                placeholder="https://example.com/image.jpg"
+                className="w-full border p-2 rounded h-14 focus:ring-2 text-black focus:ring-black outline-none" 
+            />
+            {errors.image && <p className="text-red-500 text-xs mt-1">{errors.image.message}</p>}
+
+            {/* Live Image Preview */}
+            {watch("image") && !errors.image && (
+            <div className="mt-4">
+            <p className="text-xs text-gray-500 mb-2">Preview:</p>
+            <img 
+                src={watch("image")} 
+                alt="Preview" 
+                className="w-full h-48 object-cover rounded-lg border shadow-sm"
+                onError={(e) => e.target.style.display = 'none'} // Hide if link is broken
+                />
+    </div>
+  )}
+     </div>
+     
+     <div>
+        { /*<h2 className="text-lg font-semibold text-gray-700">Project Specifics</h2>}*/}
+        <button
+      type="button"
+      onClick={() => setShowExtraDetails(!showExtraDetails)}
+      className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 text-primary rounded-full transition-colors"
+      ><span className="text-xl font-bold">{showExtraDetails ? "−" : "+"}</span>
+      {/* {showExtraDetails ? "Hide Details" : "Add More Details"} */}
+    </button>
+     </div>
 
         <button type="submit" className="w-full bg-red-700 text-white p-3 rounded font-bold hover:bg-red-800">
             Add Project

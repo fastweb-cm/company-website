@@ -8,6 +8,7 @@ export const projectSchema = z.object({
   image: z.string().url("Invalid image URL"),
   client: z.string().min(1, "Client name is required"),
   demo_link: z.string().url("Must be a valid URL").or(z.literal("")),
+  image: z.string().url("Please enter a valid image URL (e.g., https://...)"),
   
   /* The "Accounts" list (Array of objects)
   projectaccounts: z.array(
