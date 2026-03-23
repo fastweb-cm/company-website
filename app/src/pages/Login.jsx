@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import RememberMe from '../components/RememberMe';
+import Input from '../components/UI/Input';
 
 const Login = () => {
   const [stayLoggedIn, setStayLoggedIn] = React.useState(false);
@@ -17,12 +18,8 @@ const Login = () => {
     focus:outline-none focus:ring-2 focus:ring-red-500' />
 
     <div className='flex items-center justify-between mb-4'>
-      <div className='flex items-center'>
-      <input
-      type="checkbox" 
-      id="rememberme" 
-      className='h-4 w-4 accent-red-600 border-gray-300 rounded cursor-pointer' />
-      <label htmlFor="rememberme" className='text-sm text-gray-950'>Remember me</label>
+      <div className="max-w-100">
+        <Input type="checkbox" name="rememberme" label="Remember me" />
       </div>
        < Link to="/auth/forgot-password"
        className=' text-sm text-red-600 hover:underline'>Forgot Password?</Link>
