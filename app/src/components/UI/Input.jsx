@@ -53,7 +53,8 @@ const Input = ({
             ))}
           </div>
         ) : type === 'checkbox' ? (
-          <div className="flex items-center"><input  name={name} id={name} type="checkbox" />
+          <div className="flex items-center"><input  name={name} id={name} type="checkbox" 
+          className="accent-primary cursor-pointer" />
           <span className="block mx-1 text-sm font-medium text-header-text">{label}</span></div>
         ): (
           <input
