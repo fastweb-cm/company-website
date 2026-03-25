@@ -8,13 +8,19 @@ export const projectSchema = z.object({
   image: z.string().url("Invalid image URL"),
   client: z.string().min(1, "Client name is required"),
   demo_link: z.string().url("Must be a valid URL").or(z.literal("")),
-  image: z.string().url("Please enter a valid image URL (e.g., https://...)"),
   
-  /* The "Accounts" list (Array of objects)
+   challengesolution: z.array(
+    z.object({
+      title: z.string().min(1, "Title required"),
+      challenge: z.string().min(1, "Challenge required"),
+      solution: z.string().min(1, "Solution required"),
+    })
+  ).min(1, "Add at least one challenge"),
+
   projectaccounts: z.array(
     z.object({
-      role: z.string().min(1, "Role is required"),
-      password: z.string().min(1, "Password is required"),
+      role: z.string().min(1, "Role required"),
+      password: z.string().min(1, "Password required"),
     })
-  ).min(1, "Add at least one account"),*/
+  ).min(1, "Add at least one account"),
 });
