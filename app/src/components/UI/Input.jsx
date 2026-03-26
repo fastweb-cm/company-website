@@ -14,7 +14,7 @@ const Input = ({
 }) => {
   return (
     <div className={`w-full ${type === "hidden" ?"hidden" : "block"}`}>
-      {type !== "hidden" && (
+      {type !== "hidden" && type !== "checkbox" && (
         <label htmlFor={name} className="block mx-1 text-sm font-medium text-header-text">
           {label}
           {required && <span className="text-error">*</span>}
@@ -52,7 +52,11 @@ const Input = ({
               </label>
             ))}
           </div>
-        ) : (
+        ) : type === 'checkbox' ? (
+          <div className="flex items-center"><input  name={name} id={name} type="checkbox" 
+          className="accent-primary cursor-pointer" />
+          <span className="block mx-1 text-sm font-medium text-header-text">{label}</span></div>
+        ): (
           <input
             type={type}
             id={name}

@@ -1,0 +1,883 @@
+openapi: 3.1.0
+info:
+  title: FastWeb IT Consultancy API
+  version: 1.0.0
+  description: REST API documentation for FastWeb company website.
+
+servers:
+  - url: https://api.fastweb.com
+    description: Production server
+  - url: http://localhost:8000
+    description: Local development
+
+tags:
+  - name: Auth
+  - name: Blog
+  - name: Admin Blog
+  - name: Projects
+  - name: Admin Projects
+  - name: Services
+  - name: Admin Services
+  - name: Team
+  - name: Admin Team
+  - name: Testimonials
+  - name: Admin Testimonials
+  - name: FAQ
+  - name: Admin FAQ
+  - name: Contact Info
+  - name: Admin Contact Info
+  - name: SEO
+  - name: Users
+
+security:
+  - bearerAuth: []
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  responses:
+    BadRequest:
+      description: Invalid input
+
+    Unauthorized:
+      description: Unauthorized - Invalid or missing token
+
+    NotFound:
+      description: Resource not found
+
+  schemas:
+    BlogStatus:
+      type: string
+      enum: [draft, published, archived]
+
+    UserRole:
+      type: string
+      enum: [admin, author]
+
+    SeoMeta:
+      type: object
+      properties:
+        meta_title:
+          type: string
+        meta_description:
+          type: string
+        meta_keywords:
+          type: string
+        og_title:
+          type: string
+        og_description:
+          type: string
+        og_image:
+          type: string
+        canonical_url:
+          type: string
+        robots:
+          type: string
+          example: "index, follow"
+
+    User:
+      type: object
+      required: [firstname, lastname, email, username]
+      properties:
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        username:
+          type: string
+        role:
+          $ref: "#/components/schemas/UserRole"
+
+    UserCreate:
+      allOf:
+        - $ref: "#/components/schemas/User"
+        - type: object
+          required: [password]
+          properties:
+            password:
+              type: string
+
+    UserResponse:
+      allOf:
+        - $ref: "#/components/schemas/User"
+        - type: object
+          properties:
+            id:
+              type: integer
+            created_at:
+              type: string
+              format: date-time
+
+    #################################
+    # BLOG
+    #################################
+
+    BlogPostTags:
+      type: object
+      required: [name, slug]
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+
+    BlogPost:
+      type: object
+      required: [title, slug, content, category_id]
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        content:
+          type: string
+        category_id:
+          type: integer
+        read_time:
+          type: integer
+        is_featured:
+          type: boolean
+        status:
+          $ref: "#/components/schemas/BlogStatus"
+
+    BlogPostCreate:
+      type: object
+      required: [title, slug, content, category_id]
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        content:
+          type: string
+        category_id:
+          type: integer
+        read_time:
+          type: integer
+        is_featured:
+          type: boolean
+        status:
+          $ref: "#/components/schemas/BlogStatus"
+        tags:
+          type: array
+          items:
+            $ref: "#/components/schemas/BlogPostTags"
+        seo:
+          $ref: "#/components/schemas/SeoMeta"
+
+    BlogResponse:
+      allOf:
+        - $ref: "#/components/schemas/BlogPostCreate"
+        - type: object
+          properties:
+            id:
+              type: integer
+            views:
+              type: integer
+            published_at:
+              type: string
+              format: date-time
+            created_at:
+              type: string
+              format: date-time
+
+    #################################
+    # PROJECT
+    #################################
+
+    ChallengeSolution:
+      type: object
+      required: [title, challenge, solution]
+      properties:
+        title:
+          type: string
+        challenge:
+          type: string
+        solution:
+          type: string
+
+    ProjectAccounts:
+      type: object
+      required: [role, password]
+      properties:
+        role:
+          type: string
+        password:
+          type: string
+
+    Project:
+      type: object
+      required: [title, slug, category]
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        description:
+          type: string
+        category:
+          type: integer
+        image:
+          type: string
+        client:
+          type: string
+        demo_link:
+          type: string
+
+    ProjectCreate:
+      type: object
+      required: [title, slug, category]
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        description:
+          type: string
+        category:
+          type: integer
+        image:
+          type: string
+        client:
+          type: string
+        demo_link:
+          type: string
+        challengesolution:
+          type: array
+          items:
+            $ref: "#/components/schemas/ChallengeSolution"
+        projectaccounts:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProjectAccounts"
+        seo:
+          $ref: "#/components/schemas/SeoMeta"
+
+    ProjectResponse:
+      allOf:
+        - $ref: "#/components/schemas/ProjectCreate"
+        - type: object
+          properties:
+            id:
+              type: integer
+            created_at:
+              type: string
+              format: date-time
+
+    #################################
+    # SERVICES
+    #################################
+    Service:
+      type: object
+      required: [title, slug, subtitle, description]
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        subtitle:
+          type: string
+        description:
+          type: string
+        icon:
+          type: string
+        banner:
+          type: string
+
+    ServiceResponse:
+      allOf:
+        - $ref: "#/components/schemas/Service"
+        - type: object
+          properties:
+            id:
+              type: integer
+            created_at:
+              type: string
+              format: date-time
+
+    Team:
+      type: object
+      required: [name, role, photo]
+      properties:
+        name:
+          type: string
+        role:
+          type: string
+        photo:
+          type: string
+
+    TeamSocials:
+      type: object
+      required: [name, value, icon]
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+        icon:
+          type: string
+    TeamCreate:
+      allOf:
+        - $ref: "#/components/schemas/Team"
+        - type: object
+          properties:
+            teamsocials:
+              type: array
+              items:
+                $ref: "#/components/schemas/TeamSocials"
+
+    TeamResponse:
+      allOf:
+        - $ref: "#/components/schemas/TeamCreate"
+        - type: object
+          properties:
+            id:
+              type: integer
+
+    Testimonial:
+      type: object
+      required: [name, role, feedback]
+      properties:
+        name:
+          type: string
+        role:
+          type: string
+        feedback:
+          type: string
+        photo:
+          type: string
+    TestimonialResponse:
+      allOf:
+        - $ref: "#/components/schemas/Testimonial"
+        - type: object
+          properties:
+            id:
+              type: integer
+
+    FAQ:
+      type: object
+      properties:
+        question:
+          type: string
+        answer:
+          type: string
+    FAQResponse:
+      allOf:
+        - $ref: "#/components/schemas/FAQ"
+        - type: object
+          properties:
+            id:
+              type: integer
+
+    Contact:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+        title:
+          type: string
+        icon:
+          type: string
+    ContactResponse:
+      allOf:
+        - $ref: "#/components/schemas/Contact"
+        - type: object
+          properties:
+            id:
+              type: integer
+
+paths:
+  #################################
+  # AUTH
+  #################################
+
+  /auth/login:
+    post:
+      tags: [Auth]
+      operationId: loginUser
+      security: []
+      summary: Login user (Admin/Author)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: Successful login
+
+  #################################
+  # USERS (ADMIN)
+  #################################
+
+  /users:
+    post:
+      operationId: createUser
+      summary: Create admin author user
+      tags: [Users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserCreate"
+      responses:
+        "201":
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+
+    get:
+      operationId: listUsers
+      summary: List all users
+      tags: [Users]
+      responses:
+        "200":
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserResponse"
+
+  /users/{id}:
+    put:
+      tags: [Users]
+      operationId: Update user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserCreate"
+
+  #################################
+  # PUBLIC BLOG
+  #################################
+
+  /blog:
+    get:
+      tags: [Blog]
+      operationId: getPublishedPosts
+      security: []
+      summary: Get all published blog posts
+      parameters:
+        - in: query
+          name: category
+          schema:
+            type: string
+        - in: query
+          name: tag
+          schema:
+            type: string
+        - in: query
+          name: page
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of blog posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BlogResponse"
+
+  /blog/{slug}:
+    get:
+      tags: [Blog]
+      operationId: getBlogPostBySlug
+      security: []
+      summary: Get single blog post by slug
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Blog post details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogResponse"
+
+  #################################
+  # ADMIN BLOG
+  #################################
+
+  /admin/blog:
+    get:
+      tags: [Admin Blog]
+      operationId: adminGetAllPosts
+      summary: Get all blog posts (including drafts)
+      responses:
+        "200":
+          description: List of blog posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BlogResponse"
+
+    post:
+      operationId: createBlogPost
+      summary: Create blog post
+      tags: [Admin Blog]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BlogPostCreate"
+      responses:
+        "201":
+          description: Blog created
+
+  /admin/blog/{id}:
+    get:
+      tags: [Admin Blog]
+      operationId: adminGetPostById
+      summary: Get blog post by ID
+      responses:
+        "200":
+          description: List of blog posts
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogResponse"
+
+    put:
+      tags: [Admin Blog]
+      operationId: adminUpdatePost
+      summary: Update blog post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BlogPostCreate"
+
+    delete:
+      tags: [Admin Blog]
+      operationId: adminDeletePost
+      summary: Delete blog post
+
+  #################################
+  # PROJECTS (PUBLIC)
+  #################################
+
+  /projects:
+    get:
+      tags: [Projects]
+      operationId: getProjects
+      security: []
+      summary: Get all projects
+      responses:
+        "200":
+          description: List of blog posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Project"
+
+  /projects/{slug}:
+    get:
+      tags: [Projects]
+      operationId: getProjectBySlug
+      security: []
+      summary: Get project by slug
+      responses:
+        "200":
+          description: List of blog posts
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProjectResponse"
+
+  #################################
+  # ADMIN PROJECTS
+  #################################
+
+  /admin/projects:
+    get:
+      tags: [Admin Projects]
+      operationId: adminGetProjects
+      responses:
+        "200":
+          description: List of blog posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Project"
+
+    post:
+      tags: [Admin Projects]
+      operationId: adminCreateProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectCreate"
+
+  /admin/projects/{id}:
+    put:
+      tags: [Admin Projects]
+      operationId: adminUpdateProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectCreate"
+
+    delete:
+      tags: [Admin Projects]
+      operationId: adminDeleteProject
+
+  #################################
+  # SERVICES
+  #################################
+
+  /services:
+    get:
+      tags: [Services]
+      operationId: getServices
+      security: []
+      responses:
+        "200":
+          description: List of services
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ServiceResponse"
+
+  /services/{slug}:
+    get:
+      tags: [Services]
+      operationId: getServiceBySlug
+      security: []
+      responses:
+        "200":
+          description: List of services
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceResponse"
+
+  /admin/services:
+    post:
+      tags: [Admin Services]
+      operationId: adminCreateService
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Service"
+
+  /admin/services/{id}:
+    put:
+      tags: [Admin Services]
+      operationId: Update a service
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Service"
+    delete:
+      tags: [Admin Services]
+      operationId: Delete a service
+
+  #################################
+  # TEAM
+  #################################
+
+  /team:
+    get:
+      tags: [Team]
+      operationId: getTeamMembers
+      security: []
+      responses:
+        "200":
+          description: List of teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TeamResponse"
+
+  /admin/team:
+    post:
+      tags: [Admin Team]
+      operationId: adminCreateTeamMember
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TeamCreate"
+
+  /admin/team/{id}:
+    put:
+      tags: [Admin Team]
+      operationId: Update team info
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TeamCreate"
+
+  #################################
+  # TESTIMONIALS
+  #################################
+
+  /testimonials:
+    get:
+      tags: [Testimonials]
+      operationId: getTestimonials
+      security: []
+      responses:
+        "200":
+          description: List of teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TestimonialResponse"
+
+  /admin/testimonials:
+    get:
+      tags: [Admin Testimonials]
+      operationId: List all FAQ
+      responses:
+        "200":
+          description: all FAQs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TestimonialResponse"
+
+    post:
+      tags: [Admin Testimonials]
+      operationId: Create Testimonials
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Testimonial"
+
+  #################################
+  # FAQ
+  #################################
+
+  /faq:
+    get:
+      tags: [FAQ]
+      operationId: getFaq
+      security: []
+      responses:
+        "200":
+          description: all FAQ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FAQResponse"
+
+  /admin/faq:
+    get:
+      tags: [Admin FAQ]
+      operationId: All FAQs
+      responses:
+        "200":
+          description: all FAQ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FAQResponse"
+
+    post:
+      tags: [Admin FAQ]
+      operationId: Create FAQ
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FAQ"
+
+  #################################
+  # CONTACT INFO
+  #################################
+
+  /contact-info:
+    get:
+      tags: [Contact Info]
+      operationId: getContactInfo
+      security: []
+      responses:
+        "200":
+          description: contact infos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ContactResponse"
+  /admin/contact-info:
+    get:
+      tags: [Admin Contact Info]
+      operationId: contact info
+      responses:
+        "200":
+          description: contact infos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ContactResponse"
+
+    post:
+      tags: [Admin Contact Info]
+      operationId: Create contact info
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Contact"
