@@ -6,6 +6,7 @@ import Input from './UI/Input'
 import Button from './Button'
 import { toast } from 'react-toastify'
 import emailjs from "@emailjs/browser";
+import SeoMeta from './SeoMeta'
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -57,6 +58,7 @@ const handleSubmit = async (e) => {
         <div className="absolute inset-0 bg-primary/80"></div>
       </div>
 
+      
       <div className="relative z-10 flex flex-col lg:flex-row items-start justify-between gap-6 px-4 w-full -top-70">
         <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-6">
             <div className="flex flex-col gap-4">
