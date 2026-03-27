@@ -27,6 +27,7 @@ import ContactUs from "../pages/ContactUs";
 import Projects from "../pages/Projects";
 import Team from "../pages/Team";
 import Testimonials from "../pages/Testimonials";
+import SeoMetaForm from "../pages/SeoMetaForm";
 
 
 
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
       {path: "faqs", element: <FAQ />},
       {path: "contact", element: <ContactUs />},
       {path: "projects", element: <Projects />},
-      {path: "team", element: <Team />},
+      {path: "team", element: <SeoMetaForm />},
       {path: "testimonials", element: <Testimonials />},
     ],
   }
