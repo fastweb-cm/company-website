@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa"
 import Button from '../components/Button';
 import usePasswordToggle from '../utils/usePasswordToggle';
+import BlogPostForm from '../components/BlogPostForm';
 
 const Login = () => {
 
@@ -34,6 +35,7 @@ const Login = () => {
       </div>
 
       <Button variant='primary' hoverBg='black' className='w-full' >Login</Button>
+     
     </div>
   );
 };
