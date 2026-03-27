@@ -1,10 +1,7 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-import RememberMe from '../components/RememberMe';
 import Input from '../components/UI/Input';
 
 const Login = () => {
-  const [stayLoggedIn, setStayLoggedIn] = React.useState(false);
   return (
     <div>
       <h2 className='text-2xl font-bold
