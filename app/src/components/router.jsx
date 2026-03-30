@@ -30,6 +30,8 @@ import Testimonials from "../pages/Testimonials";
 import SeoMetaForm from "../pages/SeoMetaForm";
 
 
+import AddProject from "../pages/AddProject";
+
 
 const router = createBrowserRouter([
   {
@@ -67,6 +69,7 @@ const router = createBrowserRouter([
       {path: "projects", element: <Projects />},
       {path: "team", element: <SeoMetaForm />},
       {path: "testimonials", element: <Testimonials />},
+      {path: "add-project", element: <AddProject />},
     ],
   }
 ]);

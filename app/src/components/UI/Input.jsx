@@ -1,19 +1,21 @@
 'use client';
 
 import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
+import { forwardRef, useState, useEffect } from "react";
 
-const Input = ({
+const Input = forwardRef(({
   type,
   label,
   placeholder,
   option = [],
   value,
   onChange,
+  onBlur,
   name,
   required = false,
+  error,
   inputProps = {},
-}) => {
+}, ref) => {
 
   const [previews, setPreviews] = useState([]);
 
@@ -30,7 +32,10 @@ const Input = ({
       previews.forEach((url) => URL.revokeObjectURL(url));
     };
   }, [previews]);
-
+  
+  const baseInputStyles = `w-full ring-[1.5px] p-2 rounded-md text-sm outline-none focus:ring-primary/50 text-black ${
+    error ? "ring-red-500" : "ring-gray-300"
+  }`;
   return (
     <div className={`w-full ${type === "hidden" ? "hidden" : "block"}`}>
       
@@ -60,6 +65,20 @@ const Input = ({
             </option>
           ))}
         </select>
+
+        /* TEXTAREA */
+      ) : type === "textarea" ? (
+        <textarea
+          ref={ref}
+          name={name}
+          id={name}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
+          className={`${baseInputStyles} h-32`}
+          {...inputProps}
+        />
 
       ) : type === "radio" ? (
 
@@ -137,15 +156,18 @@ const Input = ({
           id={name}
           value={value}
           onChange={onChange}
+          onBlur={onBlur}
           required={required}
           className="w-full ring-[1.5px] ring-gray-300 p-2 text-text rounded-md text-sm outline-none focus:ring-primary/50"
           {...inputProps}
         />
 
       )}
+      {error && <p className="text-red-500 text-xs mt-1">{error.message}</p>}
+
     </div>
   );
-};
+});
 
 Input.propTypes = {
   type: PropTypes.string.isRequired,
@@ -154,6 +176,7 @@ Input.propTypes = {
   option: PropTypes.array,
   name: PropTypes.string.isRequired,
   required: PropTypes.bool,
+  error: PropTypes.object,
   inputProps: PropTypes.object,
 };
 
