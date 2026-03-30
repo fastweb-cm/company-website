@@ -22,6 +22,21 @@ class Router
         $this->routes['POST'][$this->normalize($uri)] = $action;
     }
 
+    public function put(string $uri, array $action): void
+    {
+        $this->routes['PUT'][$this->normalize($uri)] = $action;
+    }
+
+    public function patch(string $uri, array $action): void
+    {
+        $this->routes['PATCH'][$this->normalize($uri)] = $action;
+    }
+
+    public function delete(string $uri, array $action): void
+    {
+        $this->routes['DELETE'][$this->normalize($uri)] = $action;
+    }
+
     public function dispatch(): void
     {
         $method = $_SERVER['REQUEST_METHOD'];
