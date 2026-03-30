@@ -1,18 +1,40 @@
 import React from 'react';
-import { useForm, useFieldArray} from "react-hook-form";
+import { useForm, useFieldArray, FormProvider} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { projectSchema } from '../schemas/projectSchema';
 import button from '../components/Button';
 import { useState } from 'react';
+import Input from '../components/UI/Input';
+import SeoMeta from '../components/Forms/SeoMeta';
 
 
 const AddProject = () => {
-  const { register, handleSubmit, watch, formState: { errors }, control } = useForm({
+   const methods = useForm({
     resolver: zodResolver(projectSchema),
-      defaultValues: {
+    defaultValues: {
+      title: "",
+      slug: "",
+      description: "",
+      category: 0,      // Use 0 for numbers
+     client: "",
+     description: "",
+     image: "",
+     demoLink: "",
+      // seometa fields
+      seo: {
+        meta_title: "",
+        meta_description: "",
+        focus_keyword: "",
+        og_title: "",
+        canonical_url: "",
+        schema_type: "WebPage",
+        meta_keywords: ""
+      },
       challengesolution: [{ title: "", challenge: "", solution: "" }],
-      projectaccounts: [{ role: "", password: "" }],}
+      projectaccounts: [{ role: "", password: "" }],
+    }
   });
+  const { register, watch, handleSubmit, control, formState: { errors } } = methods;
 
   const [showExtraDetails, setShowExtraDetails] = useState(false);
 
@@ -32,78 +54,83 @@ const AddProject = () => {
 
   return (
     <div className=" mx-auto p-8 bg-white shadow-lg rounded-xl my-10">
+      <FormProvider {...methods}>
       <h3 className="text-2xl font-bold mb-6 text-primary text-center">New Project</h3>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         
-        {/* Title */}
-        <div>
-          <label className="block text-sm font-medium text-gray-500">Project Title</label>
-          <input {...register("title")} type="text" className="w-full border p-2 rounded text-black" />
-          {errors.title && <p className="text-red-500 text-xs">{errors.title.message}</p>}
-        </div>
-
-        {/* Slug */}
-        <div>
-          <label className="block text-sm font-medium text-gray-500">Slug</label>
-          <input {...register("slug")} type="text" className="w-full border p-2 rounded text-black" />
-          {errors.slug && <p className="text-red-500 text-xs">{errors.slug.message}</p>}
-        </div>
-
-        {/* Category (Number) */}
-        <div>
-          <label className="block text-sm font-medium text-gray-500">Category ID</label>
-          <input 
-            {...register("category", { valueAsNumber: true })} 
-            type="number" 
-            className="w-full border p-2 rounded text-black" 
+        <div className='p-6 border border-gray-200 rounded-xl bg-gray-50/30 shadow-sm space-y-4'>
+         {/* Title and Slug */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Input 
+            label="Project Title" 
+            type="text" 
+            placeholder="Enter project name"
+            {...register("title")} 
+            error={errors.title} 
           />
-          {errors.category && <p className="text-red-500 text-xs">{errors.category.message}</p>}
+          <Input 
+            label="Slug" 
+            type="text" 
+            placeholder="project-url-slug"
+            {...register("slug")} 
+            error={errors.slug} 
+          />
         </div>
-
+         {/* Category and Client */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Input 
+            label="Category ID" 
+            type="number" 
+            {...register("category", { valueAsNumber: true })} 
+            error={errors.category} 
+          />
+          <Input 
+            label="Client" 
+            type="text" 
+            {...register("client")} 
+            error={errors.client} 
+          />
+        </div>
         {/* Description */}
-        <div>
-          <label className="block text-sm font-medium text-gray-500">Description</label>
-          <textarea {...register("description")} className="w-full border p-2 rounded h-32 text-black" />
-          {errors.description && <p className="text-red-500 text-xs">{errors.description.message}</p>}
-        </div>
+        <Input 
+          label="Description" 
+          type="textarea" 
+          placeholder="Detailed project overview..."
+          {...register("description")} 
+          error={errors.description} 
+        />
+
        {/* Image URL with Live Preview */}
-        <div>
-             <label className="block text-sm font-medium text-gray-500">Project Image URL</label>
-            <input 
-                {...register("image")} 
-                type="text" 
-                placeholder="https://example.com/image.jpg"
-                className="w-full border p-2 rounded h-14 focus:ring-2 text-black focus:ring-black outline-none" 
-            />
-            {errors.image && <p className="text-red-500 text-xs mt-1">{errors.image.message}</p>}
+          <Input type="text"
+          label="Project Image URL"
+          {...register("image")} 
+          placeholder="https://example.com/image.jpg"
+          className="w-full border p-2 rounded h-14 focus:ring-2 text-black focus:ring-black outline-none" 
+          error ={errors.image}
+        />
 
             {/* Live Image Preview */}
-            {watch("image") && !errors.image && (
-            <div className="mt-4">
-            <p className="text-xs text-gray-500 mb-2">Preview:</p>
-            <img 
-                src={watch("image")} 
-                alt="Preview" 
-                className="w-full h-48 object-cover rounded-lg border shadow-sm"
-                onError={(e) => e.target.style.display = 'none'} // Hide if link is broken
-                />
-         </div>
-      )}
-     </div>
-     
-         {/* Client */}
-        <div>
-          <label className="block text-sm font-medium text-gray-500">Client</label>
-          <input {...register("client")} type="text" className="w-full border p-2 rounded text-black" />
-          {errors.client && <p className="text-red-500 text-xs">{errors.client.message}</p>}
-        </div>
+          {watch("image") && !errors.image && (
+          <img src={watch("image")} className="w-full h-48 object-cover rounded-lg border" alt="Preview" />
+        )};  
         {/* Demo Link */}
-        <div>
-          <label className="block text-sm font-medium text-gray-500">Demo Link</label>
-          <input {...register("demoLink")} type="url" placeholder='https://eg.com' className="w-full border p-2 rounded text-black" />
-          {errors.demoLink && <p className="text-red-500 text-xs">{errors.demoLink.message}</p>}
+        <Input 
+          label="Demo Link" 
+          type="url" 
+          placeholder="https://live-demo.com"
+          {...register("demoLink")} 
+          error={errors.demoLink} 
+        />
+        <Input 
+          label="Landing Page URL" 
+          type="url" 
+          placeholder="https://project-url.com"
+          {...register("project_url")} 
+        />
         </div>
+          {/* SEO Meta Component 
+        <SeoMeta register={register} errors={errors} /> */}
 
      <div>
         { /*<h2 className="text-lg font-semibold text-gray-700">Project Specifics</h2>*/}
@@ -124,20 +151,23 @@ const AddProject = () => {
               <h3 className="font-bold  text-gray-700">Challenges & Solutions</h3>
               {challengeFields.map((field, index) => (
                 <div key={field.id} className="p-4 border rounded bg-gray-50 relative group">
-                  <input 
+                   <Input 
+                    label="Challenge Title" 
+                    type="text" 
                     {...register(`challengesolution.${index}.title`)} 
-                    placeholder="Section Title" 
-                    className="w-full border p-2 rounded mb-2" 
+                    error={errors.challengesolution?.[index]?.title}
                   />
-                  <textarea 
+                  <Input 
+                    label="Challenge description" 
+                    type="textarea" 
                     {...register(`challengesolution.${index}.challenge`)} 
-                    placeholder="Challenge description" 
-                    className="w-full border p-2 rounded mb-2" 
+                    error={errors.challengesolution?.[index]?.challenge}
                   />
-                  <textarea 
+                  <Input 
+                    label="Solution provided" 
+                    type="textarea" 
                     {...register(`challengesolution.${index}.solution`)} 
-                    placeholder="Solution provided" 
-                    className="w-full border p-2 rounded" 
+                    error={errors.challengesolution?.[index]?.solution}
                   />
                   <button 
                     type="button" 
@@ -161,16 +191,17 @@ const AddProject = () => {
               <h3 className="font-bold text-gray-700">Project Accounts</h3>
               {accountFields.map((field, index) => (
                 <div key={field.id} className="p-4 border rounded bg-gray-50 relative group">
-                  <input 
+                  <Input 
+                    label="Role" 
+                    type="text" 
                     {...register(`projectaccounts.${index}.role`)} 
-                    placeholder="Role" 
-                    className="w-full border p-2 rounded mb-2" 
+                    error={errors.projectaccounts?.[index]?.role}
                   />
-                  <input 
+                  <Input 
+                    label="Password" 
+                    type="password" 
                     {...register(`projectaccounts.${index}.password`)} 
-                    type="password"
-                    placeholder="Password" 
-                    className="w-full border p-2 rounded" 
+                    error={errors.projectaccounts?.[index]?.password}
                   />
                   <button 
                     type="button" 
@@ -191,11 +222,16 @@ const AddProject = () => {
             </div>
           </div>
         )}
+
+        <div>
+          <SeoMeta />
+        </div>
       
         <button type="submit" className="w-full bg-red-700 text-white p-3 rounded font-bold hover:bg-red-800">
             Add Project
         </button>
       </form>
+      </FormProvider>
     </div>
   );
 };
