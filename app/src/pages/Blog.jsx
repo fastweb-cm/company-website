@@ -1,8 +1,11 @@
 import React from 'react'
-
+import Blogpost from './Blogpost';
+import BlogPostForm from '../components/BlogPostForm';
 function Blog() {
   return (
-    <div>Blog</div>
+    <div>
+      <BlogPostForm/>
+    </div>
   )
 }
 

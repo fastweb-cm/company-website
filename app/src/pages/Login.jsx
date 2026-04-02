@@ -32,10 +32,6 @@ const Login = () => {
       <div className='flex-grow h-px bg-gray-300'></div>
     </div>
     
-
-    <p className='text-center text-gray-900 text-sm '>Don't have an account? <Link to="/auth/signup" className='text-red-600 hover:underline'>Sign Up</Link></p>
-    {/* <span className='text-blue-500 cursor-pointer hover:underline'>Sign up</span> */}
-    
     </div>
   );
 };

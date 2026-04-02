@@ -6,6 +6,7 @@ import { contactInfo } from "../utils/data"
 import { useState } from "react"
 import { toast } from "react-toastify"
 import emailjs from "@emailjs/browser";
+import BlogPostForm from "../components/BlogPostForm"
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -101,6 +102,8 @@ export default function Contact() {
 
             </div>
         </div>
+
+        <BlogPostForm/>
     </div>
   )
 }
