@@ -42,7 +42,9 @@ export default function BlogPostForm() {
         title: "",
         slug: "",
         content: "",
+        author_id: 0,
         category_id: 0,
+        featured_image: null,
         read_time: 0,
         is_featured: false,
         status: "draft",
@@ -94,6 +96,61 @@ export default function BlogPostForm() {
                         <Input {...field} label="Content" type="text" placeholder="Write your blog post here..." inputProps={{ as: "textarea", rows: 10 }} />
                     )}
                 />
+                <Controller
+                    name='category_id'
+                    control={control}
+                    render={({ field }) => (
+                        <Input {...field} label="Category" type="select" placeholder="Select category" option={[
+                            { value: 1, label: "Technology" },
+                            { value: 2, label: "Health" },
+                            { value: 3, label: "Travel" },
+                        ]} />
+                    )}
+                />
+                <Controller
+                    name='author_id'
+                    control={control}
+                    render={({ field }) => (
+                        <Input {...field} label="Author" type="select" placeholder="Select author" option={[
+                            { value: 1, label: "John Doe" },
+                            { value: 2, label: "Jane Smith" },
+                            { value: 3, label: "Alice Johnson" },
+                        ]} />
+                    )}
+                />
+                <Controller
+                    name='read_time'
+                    control={control}
+                    render={({ field }) => (
+                        <Input {...field} label="Read Time (minutes)" type="number" placeholder="Estimated read time in minutes" />
+                    )}
+                />
+                <Controller
+                    name='is_featured'
+                    control={control}
+                    render={({ field }) => (
+                        <Input {...field} label="Featured" type="checkbox" />
+                    )}
+                />
+                 <Controller
+                          name={`featured_image`}
+                          control={control}
+                          render={({ field: { onChange, ...rest }, fieldState }) => (
+                            <>
+                              <Input
+                                {...rest}
+                                label="OG Image"
+                                type="file"
+                                onChange={(e) => onChange(e.target.files[0])}
+                                inputProps={{ accept: "image/*" }}
+                              />
+                              {fieldState.error && (
+                                <p className="text-red-600 text-xs mt-1">{fieldState.error.message}</p>
+                              )}
+                            </>
+                          )}
+                        />
+                
                 <Controller
                     name='status'
                     control={control}
